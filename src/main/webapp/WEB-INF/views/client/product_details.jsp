@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,63 +34,79 @@
 					<div class="col-md-9">
 						<div class="products-details">
 							<div class="preview_image">
-								<div class="preview-small">
-									<img src="../resource/client/images/${product.image}" alt=""
-										style="margin-left: 35px; width: 78%; margin-top: 2px;">
+								<div class="row">
+									<div style =" margin: 15px auto 5px; width:240px" >
+										<h5 class="name" style="font-size: 24px; font-weight: 400;"> Mô tả</h5>
+										<p style="padding-top: 3px;">${product.description}</p>
+									</div>
+									
 								</div>
-								<div class="offer">-${product.saleDTO.salePercent}%</div>
-								<div class="thum-image">
-									<ul id="gallery_01" class="prev-thum">
-										<c:forEach begin="1" end="5">
-											<li><a
-												href="#"> <img
-													src="../resource/client/images/${product.image}" alt="">
-											</a></li>
-										</c:forEach>
-									</ul>
-									<a class="control-left" id="thum-prev"
-										href="javascript:void(0);"> <i class="fa fa-chevron-left">
-									</i>
-									</a> <a class="control-right" id="thum-next"
-										href="javascript:void(0);"> <i class="fa fa-chevron-right">
-									</i>
-									</a>
+								<div class="row">
+									<div class="preview-small">
+										<img src="../resource/client/images/${product.image}" alt=""
+											style="margin-left: 35px; width: 78%; margin-top: 2px;">
+									</div>
+									<div class="thum-image">
+										<ul id="gallery_01" class="prev-thum">
+											<c:forEach begin="1" end="5">
+												<li><a href="#"> <img
+														src="../resource/client/images/${product.image}" alt="">
+												</a></li>
+											</c:forEach>
+										</ul>
+										<a class="control-left" id="thum-prev"
+											href="javascript:void(0);"> <i class="fa fa-chevron-left">
+										</i>
+										</a> <a class="control-right" id="thum-next"
+											href="javascript:void(0);"> <i
+											class="fa fa-chevron-right"> </i>
+										</a>
+									</div>
+
 								</div>
+								
+
 							</div>
 							<div class="products-description">
 								<h5 class="name" style="font-size: 24px;">${product.productName}</h5>
 								<p>
-									<img alt="" src="../resource/client/images/star.png"> <a class="review_num"
-										href="#"> 02 Review(s) </a>
+									<img alt="" src="../resource/client/images/star.png"> <a
+										class="review_num" href="#"> 02 Review(s) </a>
 								</p>
 								<p>
-									Availability: <span class=" light-red" > In Stock </span>
+									Availability: <span class=" light-red"> In Stock </span>
 								</p>
 								<p style="padding-top: 3px; font-size: 18px;">${product.description}</p>
 								<hr class="border">
+								<fmt:formatNumber var="price"
+									value="${product.price.intValue() }" maxIntegerDigits="10" />
+								<fmt:formatNumber var="priceSale"
+									value="${(product.price - (product.price * product.saleDTO.salePercent / 100)).intValue()}"
+									maxIntegerDigits="10" />
 								<div class="price">
-									Price : <span class="new_price">
-										<sup> $${product.price - (product.price * product.saleDTO.salePercent / 100)}0 </sup>
-									</span> <span class="old_price"><sup>
-											$${product.price}0  </sup> </span>
+									Price : <span class="new_price"> <sup> <c:out
+												value="${priceSale }"></c:out>
+									</sup>
+									</span> <span class="old_price"><sup> <c:out
+												value="${price }"></c:out>
+									</sup> </span>
 								</div>
 								<hr class="border">
 								<form action="add-to-cart" method="post">
 									<div class="wided">
 										<div class="qty">
-											Qantity &nbsp;&nbsp;: <select name="quantity">
+											Quantity &nbsp;&nbsp;: <select name="quantity">
 												<option>1</option>
 												<option>2</option>
 												<option>3</option>
 												<option>4</option>
 												<option>5</option>
 											</select> <input type="hidden" name="productId"
-												value="${product.productId}"/>
+												value="${product.productId}" />
 										</div>
 										<div class="button_group">
 
-											<a href="#"><button
-													class="button">Add To Cart</button></a>
+											<a href="#"><button class="button">Add To Cart</button></a>
 											<button class="button favorite">
 												<i class="fa fa-heart-o"> </i>
 											</button>
@@ -101,7 +118,8 @@
 								</form>
 								<div class="clearfix"></div>
 								<hr class="border">
-								<img src="../resource/client/images/share.png" alt="" class="pull-right">
+								<img src="../resource/client/images/share.png" alt=""
+									class="pull-right">
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -130,17 +148,21 @@
 			</div>
 		</div>
 
-		<jsp:include page="common/footer.jsp"/>
+		<jsp:include page="common/footer.jsp" />
 	</div>
-	<script type="text/javascript" src="../resource/client/js/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="../resource/client/js/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="../resource/client/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/client/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/client/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript"
+		src="../resource/client/js/bootstrap.min.js"></script>
 	<script type="text/javascript"
 		src="../resource/client/js/jquery.sequence-min.js"></script>
 	<script type="text/javascript"
 		src="../resource/client/js/jquery.carouFredSel-6.2.1-packed.js"></script>
 	<script defer src="../resource/client/js/jquery.flexslider.js"></script>
-	<script type="text/javascript" src="../resource/client/js/script.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/client/js/script.min.js"></script>
 </body>
 
 </html>

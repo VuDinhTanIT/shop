@@ -1,7 +1,8 @@
+<%@page import="com.vku.shop.entity.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -49,18 +50,35 @@
 								<div class="productname">${product.productName}</div>
 
 								<c:if test="${product.saleDTO.salePercent == 0}">
+									<fmt:formatNumber var="priceNotSale"
+										value="${product.price.intValue()}" maxIntegerDigits="10" />
+
 									<span class="price"
-										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">.</span>
-									<span class="price">$${product.price - (product.price *
-										product.saleDTO.salePercent / 100)}0</span>
+										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">
+										<c:out value="${priceNotSale}" />
+									</span>
+									<span class="price"><c:out value="${priceNotSale}" />
+										VNĐ</span>
 								</c:if>
 
+
+
 								<c:if test="${product.saleDTO.salePercent != 0}">
+
+									<fmt:formatNumber var="price"
+										value="${product.price.intValue() }" maxIntegerDigits="10" />
+									<fmt:formatNumber var="priceSale"
+										value="${(product.price - (product.price * product.saleDTO.salePercent / 100)).intValue()}"
+										maxIntegerDigits="10" />
 									<span class="price"
-										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">$${product.price}0</span>
-									<span class="price">$${product.price - (product.price *
-										product.saleDTO.salePercent / 100)}0</span>
+										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">
+										<c:out value="${price}" /> VNĐ
+									</span>
+									<span class="price"><c:out value="${priceSale}" /> VNĐ
+									</span>
+
 								</c:if>
+
 
 								<div class="button_group">
 									<a class="button add-cart" type="button"
@@ -91,9 +109,13 @@
 										style="width: 90%;" src="../download?image=${product.image}"
 										alt="Product Name"></a>
 								</div>
+								<%
+
+								%>
 								<div class="productname">${product.productName}</div>
-								<fmt:formatNumber var="p" value="${product.price - (product.price *
-										product.saleDTO.salePercent / 100)}"  />
+								<fmt:formatNumber var="p"
+									value="${product.price - (product.price *
+										product.saleDTO.salePercent / 100)}" />
 
 								<c:if test="${product.saleDTO.salePercent == 0}">
 									<span class="price"
@@ -101,11 +123,12 @@
 									<span class="price">$${product.price - (product.price *
 										product.saleDTO.salePercent / 100)}0</span>
 								</c:if>
-								
+
 								<c:if test="${product.saleDTO.salePercent != 0}">
 									<span class="price"
 										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">$${product.price}0</span>
-									<span class="price"><fmt:parseNumber type="number" value="${p}" />  </span>
+									<span class="price"><fmt:parseNumber type="number"
+											value="${p}" /> </span>
 								</c:if>
 
 								<div class="button_group">

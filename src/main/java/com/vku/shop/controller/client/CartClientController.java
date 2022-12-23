@@ -53,7 +53,7 @@ public class CartClientController {
 			@RequestParam(name = "productId") long productId) {
 		
 		ProductDTO productDTO = productService.findById(productId); // lay thong tin cua san pham khi nguoi dung chon mua
-		double unitPrice = productDTO.getPrice() - Math.round((productDTO.getPrice() * productDTO.getSaleDTO().getSalePercent() / 100));
+		float unitPrice = productDTO.getPrice() - Math.round((productDTO.getPrice() * productDTO.getSaleDTO().getSalePercent() / 100));
 		
 		Object object = session.getAttribute("cart"); // lay danh sach san pham trong gio hang tren session
 		

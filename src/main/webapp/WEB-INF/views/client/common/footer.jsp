@@ -85,19 +85,7 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-       function formatMoney1(n, currency) {
-    	   return currency + n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-    	   
-    	 }
-   	$(document).ready(function() { 
-   	 
-		 $(".products .price").each(function() {
-			  var value = formatMoney($(this), '');
-			  $(this).html(value + " VND");
-			});
-	
-       </script>
+
 	<!-- Bootstrap core JavaScript==================================================-->
 	<!-- 	  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> -->
 	<!-- 	  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script> -->

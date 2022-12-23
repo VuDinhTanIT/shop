@@ -250,7 +250,6 @@ public class ProductServiceImpl implements ProductService {
 			categoryDTO.setCategoryName(product.getCategory().getCategoryName());
 			
 			ProductDTO productDTO = new ProductDTO();
-			
 			productDTO.setProductId(product.getProductId());
 			productDTO.setProductName(product.getProductName());
 			productDTO.setImage(product.getImage());

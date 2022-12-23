@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,13 +28,14 @@
 <body id="home">
 	<div class="hot-products">
 		<h3 class="title">
-			 Sản phẩm <strong>mới</strong>
+			Sản phẩm <strong>mới</strong>
 		</h3>
 		<div class="control">
 			<a id="prev_hot" class="prev" href="#">&lt;</a><a id="next_hot"
 				class="next" href="#">&gt;</a>
 		</div>
-		<ul id="hot">
+		<ul id="featured">
+
 			<li>
 				<div class="row">
 					<c:forEach items="${hotOne}" var="product">
@@ -48,23 +50,41 @@
 								<div class="productname">${product.productName}</div>
 
 								<c:if test="${product.saleDTO.salePercent == 0}">
+									<fmt:formatNumber var="priceNotSale"
+										value="${product.price.intValue()}" maxIntegerDigits="10" />
+
 									<span class="price"
-										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">.</span>
-									<span class="price">${product.price - (product.price *
-										product.saleDTO.salePercent / 100)}0</span>
+										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">
+										<c:out value="${priceNotSale}" />
+									</span>
+									<span class="price"><c:out value="${priceNotSale}" />
+										VNĐ</span>
 								</c:if>
+
+
 
 								<c:if test="${product.saleDTO.salePercent != 0}">
+
+									<fmt:formatNumber var="price"
+										value="${product.price.intValue() }" maxIntegerDigits="10" />
+									<fmt:formatNumber var="priceSale"
+										value="${(product.price - (product.price * product.saleDTO.salePercent / 100)).intValue()}"
+										maxIntegerDigits="10" />
 									<span class="price"
-										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">$${product.price}0</span>
-									<span class="price">${product.price - (product.price *
-										product.saleDTO.salePercent / 100)}0</span>
+										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">
+										<c:out value="${price}" /> VNĐ
+									</span>
+									<span class="price"><c:out value="${priceSale}" /> VNĐ
+									</span>
+
 								</c:if>
+
+
 								<div class="button_group">
 									<a class="button add-cart" type="button"
-										href="add-to-cart?productId=${product.productId}">Add To
-										Cart</a>
-
+										href="add-to-cart?productId=${product.productId}"> <i
+										class="fa fa-shopping-cart"> </i>
+									</a>
 									<button class="button compare" type="button">
 										<i class="fa fa-exchange"></i>
 									</button>
@@ -77,6 +97,7 @@
 					</c:forEach>
 				</div>
 			</li>
+
 			<li>
 				<div class="row">
 					<c:forEach items="${hotTwo}" var="product">
@@ -88,7 +109,13 @@
 										style="width: 90%;" src="../download?image=${product.image}"
 										alt="Product Name"></a>
 								</div>
+								<%
+
+								%>
 								<div class="productname">${product.productName}</div>
+								<fmt:formatNumber var="p"
+									value="${product.price - (product.price *
+										product.saleDTO.salePercent / 100)}" />
 
 								<c:if test="${product.saleDTO.salePercent == 0}">
 									<span class="price"
@@ -100,15 +127,14 @@
 								<c:if test="${product.saleDTO.salePercent != 0}">
 									<span class="price"
 										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">$${product.price}0</span>
-									<span class="price">$${product.price - (product.price *
-										product.saleDTO.salePercent / 100)}0</span>
+									<span class="price"><fmt:parseNumber type="number"
+											value="${p}" /> </span>
 								</c:if>
 
 								<div class="button_group">
 									<a class="button add-cart" type="button"
 										href="add-to-cart?productId=${product.productId}">Add To
 										Cart</a>
-
 									<button class="button compare" type="button">
 										<i class="fa fa-exchange"></i>
 									</button>
@@ -121,6 +147,7 @@
 					</c:forEach>
 				</div>
 			</li>
+
 		</ul>
 	</div>
 	<!-- Bootstrap core JavaScript==================================================-->

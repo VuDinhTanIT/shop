@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +54,8 @@
 									<tbody>
 										<c:forEach items="${sessionScope.cart}" var="cart">
 											<tr>
-												<td><a href="product-details?productId=${cart.value.productDTO.productId}"><img
+												<td><a
+													href="product-details?productId=${cart.value.productDTO.productId}"><img
 														src="../download?image=${cart.value.productDTO.image}"
 														alt=""></a></td>
 												<td>
@@ -73,23 +75,32 @@
 														</p>
 													</div>
 												</td>
-												<td>
-													<h5 style="color: #41B314; font-weight: bold;">$${cart.value.unitPrice}0</h5>
-													<c:if
+												<td><fmt:formatNumber var="price"
+														value="${cart.value.unitPrice}" maxIntegerDigits="10" />
+													<h5 style="color: #41B314; font-weight: bold;">
+														<c:out value="${price }" />
+														VNĐ
+													</h5> <c:if
 														test="${cart.value.productDTO.saleDTO.salePercent > 0}">
+														<fmt:formatNumber var="priceOld"
+															value="${cart.value.productDTO.price}"
+															maxIntegerDigits="10" />
 														<p
-															style="font-size: 16px; padding-top: 7px; text-decoration: line-through;">$${cart.value.productDTO.price}0</p>
-													</c:if>
-												</td>
+															style="font-size: 16px; padding-top: 7px; text-decoration: line-through;">
+															<c:out value="${priceOld } " />
+															VNĐ
+														</p>
+													</c:if></td>
 												<td>
 													<form action="add-to-cart" method="post">
 														<select name="quantity" onchange="this.form.submit()">
 															<c:forEach begin="1" end="5" var="i">
 																<option
 																	<c:if test="${cart.value.quantity == i}">
-														selected="selected"
-														</c:if>
-																	value="${i}">${i}</option>
+																		selected="selected"
+																	</c:if>
+																	value="${i}">${i}
+																</option>
 															</c:forEach>
 															<input type="hidden"
 															value="${cart.value.productDTO.productId}"
@@ -98,10 +109,14 @@
 													</form>
 												</td>
 												<td>
+													<fmt:formatNumber var="priceTotal"
+															value="${Math.round(cart.value.unitPrice) 
+															* cart.value.quantity}"
+															maxIntegerDigits="10" />
 													<h5>
 														<strong class="red" style="font-weight: bold;">
-															$${Math.round(cart.value.unitPrice) *
-															cart.value.quantity}.00 </strong>
+														<c:out value="${priceTotal }"/> VNĐ
+														</strong>
 													</h5>
 												</td>
 												<td><a
@@ -151,16 +166,22 @@
 									<div class="col-md-4 col-sm-6">
 										<div class="shippingbox">
 											<div class="subtotal">
+												<fmt:formatNumber var="sessionSubtotal"
+															value="${sessionScope.subTotal}"
+															maxIntegerDigits="10" />
 												<h5>Sub Total:</h5>
-												<span>$${sessionScope.subTotal}0</span>
+												<span><c:out value="${sessionSubtotal}"/> VNĐ</span>
 											</div>
 											<div class="subtotal">
 												<h5>Shipping Fee:</h5>
-												<span> $5.00 </span>
+												<span> 0 VNĐ </span>
 											</div>
 											<div class="grandtotal">
+												<fmt:formatNumber var="SessionGrandtotal"
+															value="${sessionScope.grandTotal}"
+															maxIntegerDigits="10" />
 												<h5>GRAND TOTAL</h5>
-												<span>$${sessionScope.grandTotal}0</span>
+												<span><c:out value="${SessionGrandtotal}"/> VNĐ</span>
 											</div>
 											<c:if test="${sessionScope.user != null}">
 												<c:if

@@ -29,4 +29,9 @@ public interface ProductService {
 	List<ProductDTO> search(long categoryId, String pricing, double priceFrom, double priceTo, String sort, String text, int pageIndex, int pageSize);
 
 	int countBySearch(long categoryId, String pricing, double priceFrom, double priceTo, String text);
+
+	List<ProductDTO> search(long categoryId, String pricing, float priceFrom, float priceTo, String sort, String text,
+			int pageIndex, int pageSize);
+
+	int countBySearch(long categoryId, String pricing, float priceFrom, float priceTo, String text);
 }

@@ -4,7 +4,7 @@ public class ProductDTO {
 
 	private long productId;
 	private String productName;
-	private double price;
+	private float price;
 	private int quantity;
 	private String description;
 	private String image;
@@ -17,7 +17,7 @@ public class ProductDTO {
 	}
 
 
-	public ProductDTO(long productId, String productName, double price, int quantity, String description, String image,
+	public ProductDTO(long productId, String productName, float price, int quantity, String description, String image,
 			CategoryDTO categoryDTO, SaleDTO saleDTO) {
 		super();
 		this.productId = productId;
@@ -51,12 +51,12 @@ public class ProductDTO {
 	}
 
 
-	public double getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
 
-	public void setPrice(double d) {
+	public void setPrice(float d) {
 		this.price = d;
 	}
 
