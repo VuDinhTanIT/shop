@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="../resource/client/images/favicon.png">
-<title>Welcome to FlatShop</title>
+<title>Welcome to Shop</title>
 <link href="../resource/client/css/bootstrap.css" rel="stylesheet">
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100'
@@ -46,8 +48,8 @@
 										<tr>
 											<th>Image</th>
 											<th>Details</th>
-											<th>Price</th>
-											<th>Quantity</th>
+											<th>Giá</th>
+											<th>Số lượng</th>
 											<th>Total Amount</th>
 											<th>Vote</th>
 										</tr>
@@ -68,7 +70,7 @@
 
 														<p>${product.description}</p>
 														<p>
-															Sale : <strong class="pcode">-${item.productDTO.saleDTO.salePercent}%</strong>
+															Giảm giá: <strong class="pcode">-${item.productDTO.saleDTO.salePercent}%</strong>
 														</p>
 														<p>
 															Product Code : <strong class="pcode">${item.productDTO.productId}</strong>
@@ -76,10 +78,15 @@
 													</div>
 												</td>
 												<td>
-													<h5 style="color: #41B314; font-weight: bold;">$${item.unitPrice}0</h5>
-													<c:if test="${item.productDTO.saleDTO.salePercent > 0}">
+													<h5 style="color: #41B314; font-weight: bold;">
+														<fmt:formatNumber value="${item.unitPrice}"
+															maxIntegerDigits="10" />
+														VNĐ
+													</h5> <c:if test="${item.productDTO.saleDTO.salePercent > 0}">
 														<p
-															style="font-size: 16px; padding-top: 7px; text-decoration: line-through;">$${item.productDTO.price}0</p>
+															style="font-size: 16px; padding-top: 7px; text-decoration: line-through;">
+															<fmt:formatNumber value="${item.productDTO.price}" maxIntegerDigits="10" /> VNĐ
+														</p>
 													</c:if>
 												</td>
 												<td><select name="quantity">
@@ -89,8 +96,9 @@
 												</select></td>
 												<td>
 													<h5>
-														<strong class="red"> $${item.unitPrice *
-															item.quantity}0 </strong>
+														<strong class="red">
+														<fmt:formatNumber value=" ${item.unitPrice * item.quantity}"
+															maxIntegerDigits="10" /> VNĐ</strong>
 													</h5>
 												</td>
 												<td><select>
@@ -120,17 +128,24 @@
 										</tr>
 									</tfoot>
 								</table>
-								<div class="subtotal" style="margin-top: -10px;"> 
+								<div class="subtotal" style="margin-top: -10px;">
 									<h5>Sub Total:</h5>
-									<span>$${requestScope.subTotal}0</span>
+									<span>
+									<fmt:formatNumber value=" ${requestScope.subTotal}"
+															maxIntegerDigits="10" /> VNĐ
+									
+									</span>
 								</div>
 								<div class="subtotal" style="margin-top: 5px;">
 									<h5>Shipping Fee:</h5>
-									<span> $5.00 </span>
+									<span> 0 VNĐ </span>
 								</div>
 								<div class="grandtotal" style="margin-top: 5px;">
 									<h5>GRAND TOTAL</h5>
-									<span>$${requestScope.grandTotal}0</span>
+									<span>
+									<fmt:formatNumber value=" ${requestScope.grandTotal}"
+															maxIntegerDigits="10" /> VNĐ
+									</span>
 								</div>
 								<div class="clearfix"></div>
 							</div>

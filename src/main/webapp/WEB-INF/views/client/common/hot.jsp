@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- <link rel="shortcut icon" href="images/favicon.png"> -->
-<!-- <title>Welcome to FlatShop</title> -->
+<!-- <title>Welcome to Shop</title> -->
 <!-- <link href="../resource/client/css/bootstrap.css" rel="stylesheet"> -->
 <!-- <link -->
 <!-- 	href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' -->
@@ -34,7 +34,7 @@
 			<a id="prev_hot" class="prev" href="#">&lt;</a><a id="next_hot"
 				class="next" href="#">&gt;</a>
 		</div>
-		<ul id="featured">
+		<ul id="hot">
 
 			<li>
 				<div class="row">
@@ -45,7 +45,7 @@
 								<div class="thumbnail">
 									<a href="product-details?productId=${product.productId}"><img
 										style="width: 90%;" src="../download?image=${product.image}"
-										alt="Product Name"></a>
+										alt="Tên sản phẩm"></a>
 								</div>
 								<div class="productname">${product.productName}</div>
 
@@ -107,28 +107,25 @@
 								<div class="thumbnail">
 									<a href="product-details?productId=${product.productId}"><img
 										style="width: 90%;" src="../download?image=${product.image}"
-										alt="Product Name"></a>
+										alt="Tên sản phẩm"></a>
 								</div>
 								<%
 
 								%>
 								<div class="productname">${product.productName}</div>
-								<fmt:formatNumber var="p"
-									value="${product.price - (product.price *
-										product.saleDTO.salePercent / 100)}" />
 
-								<c:if test="${product.saleDTO.salePercent == 0}">
-									<span class="price"
-										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">.</span>
-									<span class="price">$${product.price - (product.price *
-										product.saleDTO.salePercent / 100)}0</span>
-								</c:if>
 
-								<c:if test="${product.saleDTO.salePercent != 0}">
+								<c:if test="${product.saleDTO.salePercent != 1010}">
+									<fmt:formatNumber var="price"
+										value="${product.price.intValue() }" maxIntegerDigits="10" />
+									<fmt:formatNumber var="priceSale"
+										value="${(product.price - (product.price * product.saleDTO.salePercent / 100)).intValue()}"
+										maxIntegerDigits="10" />
 									<span class="price"
-										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">$${product.price}0</span>
-									<span class="price"><fmt:parseNumber type="number"
-											value="${p}" /> </span>
+										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">
+										<c:out value="${price }" /> VNĐ
+									</span>
+									<span class="price"><c:out value="${priceSale }" /> VNĐ</span>
 								</c:if>
 
 								<div class="button_group">

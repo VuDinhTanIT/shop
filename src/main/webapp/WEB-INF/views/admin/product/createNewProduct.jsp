@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+<title>Trang Quản Trị - Electronic Shop</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -53,7 +53,7 @@
 					<div class="panel panel-headline">
 						<div class="panel-heading"
 							style="display: flex; justify-content: space-between;">
-							<h3 class="panel-title">CREATE NEW PRODUCT</h3>
+							<h3 class="panel-title">Thêm sản phẩm mới</h3>
 							<a class="btn btn-warning" href="product-list"
 								style="background-color: #D9534F; padding: 2px 10px; text-decoration: none; border: none; margin-right: 10px; height: 25px;">Back</a>
 						</div>
@@ -62,7 +62,7 @@
 								style="display: flex; justify-content: space-between;">
 								<table style="margin: auto; margin-left: 60px;" class="col-md-6">
 									<tr>
-										<th>Category:</th>
+										<th>Danh mục:</th>
 										<td><select name="categoryId">
 												<c:forEach items="${categories}" var="category">
 													<option value="${category.categoryId}">${category.categoryName}</option>
@@ -70,15 +70,15 @@
 										</select></td>
 									</tr>
 									<tr>
-										<th>Product name:</th>
+										<th>Tên sản phẩm:</th>
 										<td><input type="text" class="form-control"
 											required="required" style="height: 30px;"
-											placeholder="Enter product name..." name="productName" /></td>
+											placeholder="Nhập Tên sản phẩm..." name="productName" /></td>
 									</tr>
 									<tr>
-										<th>Description:</th>
+										<th>Mô tả:</th>
 										<td><textarea required="required" class="form-control"
-												placeholder="Enter product description..." rows="4"
+												placeholder="Nhập mô tả sản phẩm.." rows="4"
 												name="description"></textarea></td>
 									</tr>
 									<tr>
@@ -94,35 +94,35 @@
 									style="margin: auto; margin-left: 50px; margin-right: -40px;"
 									class="col-md-6">
 									<tr>
-										<th>Price:</th>
+										<th>Giá:</th>
 										<td><input type="text" class="form-control"
 											required="required" style="height: 30px; width: 230px;"
 											placeholder="$0.00" name="price" /></td>
 									</tr>
 									<tr>
-										<th>Quantity:</th>
+										<th>Số lượng:</th>
 										<td><input type="text" class="form-control"
 											required="required" style="height: 30px; width: 230px;"
 											placeholder="0" name="quantity" /></td>
 									</tr>
 									<tr>
-										<th>Image:</th>
+										<th>Hình ảnh:</th>
 										<td><input type="file" required="required"
 											name="imageFile" /></td>
 									</tr>
 									<tr>
-										<th>Sale code:</th>
+										<th>Giảm giá:</th>
 										<td><select name="saleId">
 												<c:forEach items="${sales}" var="sale">
 													<option value="${sale.saleId}">${sale.salePercent}%</option>
 												</c:forEach>
-										</select> <a style="margin-left: 10px;" href="">More sale code</a></td>
+										</select> <a style="margin-left: 10px;" href=""> Nhiều hơn</a></td>
 									</tr>
 									<tr>
 										<th></th>
 										<td>
 											<button type="submit" class="btn btn-primary"
-												style="font-weight: bold;">CREATE</button>
+												style="font-weight: bold;">Tạo</button>
 										</td>
 									</tr>
 									<tr>

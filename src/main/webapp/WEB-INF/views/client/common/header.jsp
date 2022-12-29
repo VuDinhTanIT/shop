@@ -8,7 +8,7 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="images/favicon.png">
-<title>Welcome to FlatShop</title>
+<title>Welcome to Shop</title>
 <!-- <link href="client/css/bootstrap.css" rel="stylesheet"> -->
 <!-- <link -->
 <!-- 	href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' -->
@@ -28,7 +28,7 @@
 				<div class="col-md-2 col-sm-2">
 					<div class="logo">
 						<a href="index.html"><img
-							src="../resource/client/images/logo.png" alt="FlatShop"></a>
+							src="../resource/client/images/logo.png" alt="Shop"></a>
 					</div>
 				</div>
 				<div class="col-md-10 col-sm-10">
@@ -36,8 +36,8 @@
 						<div class="row">
 							<div class="col-md-3">
 								<ul class="option_nav">
-									<li class="dorpdown"><a href="#">Eng</a></li>
-									<li class="dorpdown"><a href="#">USD</a></li>
+									<li class="dorpdown"><a href="#">VN</a></li>
+									<li class="dorpdown"><a href="#">VNĐ</a></li>
 								</ul>
 							</div>
 							<div class="col-md-6">
@@ -57,8 +57,8 @@
 							<div class="col-md-3">
 								<c:if test="${sessionScope.user == null}">
 									<ul class="usermenu">
-										<li><a href="../login" class="log">Login</a></li>
-										<li><a href="../register" class="reg">Register</a></li>
+										<li><a href="../login" class="log">Đăng Nhập</a></li>
+										<li><a href="../register" class="reg">Đăng ký</a></li>
 									</ul>
 								</c:if>
 
@@ -73,7 +73,7 @@
 											style="font-size: 22px; margin-top: -2px; color: #F7544A;"
 											class="fa">&#xf011;</i> <a
 											style="position: absolute; margin-left: -18px;"
-											href="../logout">Logout</a></li>
+											href="../logout">Đăng xuất</a></li>
 									</ul>
 								</c:if>
 
@@ -86,7 +86,7 @@
 									<li id="search" class="search">
 										<form action="search" method="get">
 											<input class="search-submit" type="submit" value=""><input
-												class="search-input" placeholder="Enter your search term..."
+												class="search-input" placeholder="Nhập tìm kiếm sản phẩm..."
 												type="text" value="" name="text">
 										</form>
 									</li>
@@ -110,7 +110,7 @@
 						</div>
 						<div class="navbar-collapse">
 							<ul class="nav">
-								<li><a style="text-transform: none;" href="home">Home</a></li>
+								<li><a style="text-transform: none;" href="home">Trang chủ</a></li>
 								<c:forEach items="${sessionScope.categories}" var="category">
 									<li><a style="text-transform: none;"
 										href="search?categoryId=${category.categoryId}">${category.categoryName}</a>

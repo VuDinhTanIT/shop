@@ -34,7 +34,7 @@ public class CheckoutController {
 	public String checkout(HttpSession session) {
 		
 		float subTotal = 0; // tong tien hang
-		float fee = 5; // phi ship = 5$
+		float feeShipping = 0; // phi ship = 5$
 		
 		UserPrincipal userPrincipal = (UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		// lay thong tin nguoi mua hang
@@ -57,7 +57,7 @@ public class CheckoutController {
 		order.setBuyDate(date);
 		order.setBuyer(user);
 		order.setStatus("PENDING");
-		order.setPriceTotal(subTotal + fee);
+		order.setPriceTotal(subTotal + feeShipping);
 		
 		orderDao.insert(order);
 		

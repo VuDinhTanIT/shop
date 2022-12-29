@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="../resource/client/images/favicon.png">
-<title>Welcome to FlatShop</title>
+<title>Welcome to Shop</title>
 <link href="../resource/client/css/bootstrap.css" rel="stylesheet">
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100'
@@ -45,10 +45,10 @@
 										<tr>
 											<th>Image</th>
 											<th>Details</th>
-											<th>Price</th>
-											<th>Quantity</th>
+											<th>Giá</th>
+											<th>Số lượng</th>
 											<th>Total Amount</th>
-											<th>Delete</th>
+											<th>Xóa</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -68,7 +68,7 @@
 
 														<p>${product.description}</p>
 														<p>
-															Sale : <strong class="pcode">-${cart.value.productDTO.saleDTO.salePercent}%</strong>
+															Giảm giá: <strong class="pcode">-${cart.value.productDTO.saleDTO.salePercent}%</strong>
 														</p>
 														<p>
 															Product Code : <strong class="pcode">${cart.value.productDTO.productId}</strong>
@@ -136,7 +136,7 @@
 								</table>
 								<div class="clearfix"></div>
 								<div class="row">
-									<div class="col-md-4 col-sm-6">
+									<div class="col-md-6 col-sm-6">
 										<div class="shippingbox">
 											<h5>Estimate Shipping And Tax</h5>
 											<label> Address * </label> <input type="text" name=""
@@ -150,6 +150,7 @@
 											</c:if>
 										</div>
 									</div>
+									<!-- 
 									<div class="col-md-4 col-sm-6">
 										<div class="shippingbox">
 											<h5>Discount Codes</h5>
@@ -163,7 +164,9 @@
 											</form>
 										</div>
 									</div>
-									<div class="col-md-4 col-sm-6">
+									 -->
+									
+									<div class="col-md-6 col-sm-6">
 										<div class="shippingbox">
 											<div class="subtotal">
 												<fmt:formatNumber var="sessionSubtotal"
@@ -186,18 +189,17 @@
 											<c:if test="${sessionScope.user != null}">
 												<c:if
 													test="${sessionScope.user.address == null || sessionScope.user.phone == null}">
-													<a href="profile-from-cart"><button>Process To
-															Checkout</button></a>
+													<a href="profile-from-cart"><button>Thanh toán</button></a>
 												</c:if>
 												<c:if
 													test="${sessionScope.user.address != null && sessionScope.user.phone != null && sessionScope.grandTotal > 5}">
 													<form action="checkout" method="post">
-														<button type="submit">Process To Checkout</button>
+														<button type="submit">Thanh toán</button>
 													</form>
 												</c:if>
 											</c:if>
 											<c:if test="${sessionScope.user == null}">
-												<a href="../login"><button>Process To Checkout</button></a>
+												<a href="../login"><button>Thanh toán</button></a>
 											</c:if>
 										</div>
 									</div>

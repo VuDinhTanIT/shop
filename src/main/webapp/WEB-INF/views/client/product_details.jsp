@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="../resource/client/images/favicon.png">
-<title>Welcome to FlatShop</title>
+<title>Welcome to Shop</title>
 <link href="../resource/client/css/bootstrap.css" rel="stylesheet">
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100'
@@ -35,11 +35,18 @@
 						<div class="products-details">
 							<div class="preview_image">
 								<div class="row">
-									<div style =" margin: 15px auto 5px; width:240px" >
-										<h5 class="name" style="font-size: 24px; font-weight: 400;"> Mô tả</h5>
-										<p style="padding-top: 3px;">${product.description}</p>
+									<div class="col-md-3">
+										<div class="category leftbar">
+											<h3 class="title">Categories</h3>
+											<ul>
+												<c:forEach items="${categories}" var="category">
+													<li><a
+														href="product-grid?categoryId=${category.categoryId}">${category.categoryName}</a></li>
+												</c:forEach>
+											</ul>
+										</div>
 									</div>
-									
+
 								</div>
 								<div class="row">
 									<div class="preview-small">
@@ -64,7 +71,7 @@
 									</div>
 
 								</div>
-								
+
 
 							</div>
 							<div class="products-description">
@@ -76,6 +83,7 @@
 								<p>
 									Availability: <span class=" light-red"> In Stock </span>
 								</p>
+								<!--  -->
 								<p style="padding-top: 3px; font-size: 18px;">${product.description}</p>
 								<hr class="border">
 								<fmt:formatNumber var="price"
@@ -85,10 +93,11 @@
 									maxIntegerDigits="10" />
 								<div class="price">
 									Price : <span class="new_price"> <sup> <c:out
-												value="${priceSale }"></c:out>
+												value="${priceSale }"></c:out> VNĐ
 									</sup>
 									</span> <span class="old_price"><sup> <c:out
-												value="${price }"></c:out>
+												value="${price }">
+											</c:out> VNĐ
 									</sup> </span>
 								</div>
 								<hr class="border">
@@ -133,6 +142,7 @@
 						</div>
 						<div class="clearfix"></div>
 						<div class="clearfix"></div>
+
 						<div class="leftbanner">
 							<img src="../resource/client/images/vans.jpg" alt="">
 						</div>

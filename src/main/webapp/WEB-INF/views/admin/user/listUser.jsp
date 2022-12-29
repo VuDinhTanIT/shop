@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+<title>Trang Quản Trị - Electronic Shop</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -62,7 +62,7 @@
 												<div class="right">
 													<button type="submit">
 														<span class="label label-danger"
-															style="font-size: 15px; margin-right: 15px;">Delete</span>
+															style="font-size: 15px; margin-right: 15px;">Xóa</span>
 													</button>
 													<a href="user-create"><span
 														class="label label-success" style="font-size: 15px;">Create
@@ -83,7 +83,7 @@
 															<th style="width: 25%;">Address</th>
 															<th>Gender</th>
 															<th style="width: 5%;">Role</th>
-															<th>Edit</th>
+															<th>Sửa</th>
 														</tr>
 													</thead>
 													<tbody>

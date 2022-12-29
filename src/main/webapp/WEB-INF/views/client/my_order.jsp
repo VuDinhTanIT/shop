@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="../resource/client/images/favicon.png">
-<title>Welcome to FlatShop</title>
+<title>Welcome to Shop</title>
 <link href="../resource/client/css/bootstrap.css" rel="stylesheet">
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100'
@@ -64,7 +64,7 @@
 												<th>Date &amp; Time</th>
 												<th>Status</th>
 												<th>Order Details</th>
-												<th>Edit</th>
+												<th>Sửa</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -72,7 +72,9 @@
 												<tr>
 													<td><a href="#">No. ${order.orderId}</a></td>
 													
-													<td style="color: red; font-weight: bold;">$${order.priceTotal}0</td>
+													<td style="color: red; font-weight: bold;">
+														<fmt:formatNumber value="${order.priceTotal}" maxIntegerDigits="10" /> VNĐ
+													</td>
 													<td>${order.buyDate}</td>
 													<td><c:if test="${order.status == 'PENDING'}">
 															<span class="label label-warning">${order.status}</span>

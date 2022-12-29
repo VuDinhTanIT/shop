@@ -37,11 +37,11 @@ public class MyOrderClientController {
 	@GetMapping(value = "order-details")
 	public String orderDetails(HttpServletRequest request, @RequestParam(name = "orderId") long orderId) {
 		List<ItemDTO> itemDTOs = itemService.findByOrderId(orderId);
-		float subTotal = 0;
+		float subTotal = 0, feeShipping=0;
 		for (ItemDTO itemDTO : itemDTOs) {
 			subTotal += (itemDTO.getUnitPrice() * itemDTO.getQuantity());
 		}
-		float grandTotal = subTotal + 5;
+		float grandTotal = subTotal + feeShipping;
 		request.setAttribute("subTotal", subTotal);
 		request.setAttribute("grandTotal", grandTotal);
 		request.setAttribute("items", itemDTOs);

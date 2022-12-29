@@ -13,7 +13,7 @@ import com.vku.shop.service.ItemService;
 import com.vku.shop.service.OrderService;
 
 @Controller
-@RequestMapping(value = "/admin")
+@RequestMapping(value = "/admin", produces = "application/x-www-form-urlencoded;charset=UTF-8")
 public class OrderManagementAdminController {
 
 	@Autowired

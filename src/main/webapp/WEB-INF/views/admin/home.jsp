@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+<title>Trang Quản Trị - Electronic Shop</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -127,7 +128,10 @@
 														<tr>
 															<td><a href="#">No. ${order.orderId}</a></td>
 															<td>${order.userDTO.email.split("@")[0]}</td>
-															<td>$${order.priceTotal}0</td>
+															<td>
+																<fmt:formatNumber value="${order.priceTotal}"
+																maxIntegerDigits="10" /> VNĐ
+															</td>
 															<td>${order.buyDate}</td>
 															<c:if test="${order.status eq 'PENDING'}">
 																<td><a href="order-updateHome?orderId=${order.orderId}"><span class="label label-warning">PENDING</span></a></td>

@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+<title>Trang Quản Trị - Electronic Shop</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -62,7 +63,7 @@
 												<div class="right">
 													<button type="submit">
 														<span class="label label-danger"
-															style="font-size: 15px; margin-right: 15px;">Delete</span>
+															style="font-size: 15px; margin-right: 15px;">Xóa</span>
 													</button>
 													<a href="#"><span class="label label-success"
 														style="font-size: 15px;">Create new order</span></a>
@@ -92,7 +93,9 @@
 																<td style="vertical-align: middle;">No.
 																	${order.orderId}</td>
 																	<td>${order.userDTO.email.split("@")[0]}</td>
-															<td>$${order.priceTotal}0</td>
+															<td>
+																<fmt:formatNumber value=" ${order.priceTotal}" maxIntegerDigits="10" /> VNĐ
+															</td>
 															<td>${order.buyDate}</td>
 															<c:if test="${order.status eq 'PENDING'}">
 																<td><a href="order-update?orderId=${order.orderId}&pageIndex=${pageIndex}

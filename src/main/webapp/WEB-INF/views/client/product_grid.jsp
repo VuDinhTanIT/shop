@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="../resource/client/images/favicon.png">
-<title>Welcome to FlatShop</title>
+<title>Welcome to Shop</title>
 <link href="../resource/client/css/bootstrap.css" rel="stylesheet">
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100'
@@ -42,7 +42,7 @@
 						</div>
 
 						<div class="price-filter leftbar">
-							<h3 class="title">Price</h3>
+							<h3 class="title">Giá</h3>
 							<form class="pricing" action="search" method="get">
 								<select name="pricing" onchange='this.form.submit()'>
 									<option
@@ -121,7 +121,7 @@
 											<div class="thumbnail">
 												<a href="product-details?productId=${product.productId}"><img
 													style="width: 90%;"
-													src="../download?image=${product.image}" alt="Product Name"></a>
+													src="../download?image=${product.image}" alt="Tên sản phẩm"></a>
 											</div>
 											<div class="productname">${product.productName}</div>
 											<!-- 

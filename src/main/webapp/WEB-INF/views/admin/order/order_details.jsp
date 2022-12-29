@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+<title>Trang Quản Trị - Electronic Shop</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -62,10 +63,13 @@
 										style="font-size: 15px; margin-right: 15px;">Back</span></a>
 								</button>
 								<c:if test="${order.status eq 'PENDING'}">
-								<a href="order-update?orderId=${order.orderId}"><span class="label label-warning" style="font-size: 15px; margin-right: 15px;">Accept</span></a>
+									<a href="order-update?orderId=${order.orderId}"><span
+										class="label label-warning"
+										style="font-size: 15px; margin-right: 15px;">Accept</span></a>
 								</c:if>
 								<c:if test="${order.status eq 'SUCCESS'}">
-								<span class="label label-success" style="font-size: 15px; margin-right: 15px;">Success</span>
+									<span class="label label-success"
+										style="font-size: 15px; margin-right: 15px;">Success</span>
 								</c:if>
 							</div>
 						</div>
@@ -75,8 +79,8 @@
 									<tr>
 										<th>Image</th>
 										<th>Details</th>
-										<th>Price</th>
-										<th>Quantity</th>
+										<th>Giá</th>
+										<th>Số lượng</th>
 										<th>Total Amount</th>
 										<th>Vote</th>
 									</tr>
@@ -97,7 +101,7 @@
 
 													<p>${product.description}</p>
 													<p>
-														Sale : <strong class="pcode">-${item.productDTO.saleDTO.salePercent}%</strong>
+														Giảm giá: <strong class="pcode">-${item.productDTO.saleDTO.salePercent}%</strong>
 													</p>
 													<p>
 														Product Code : <strong class="pcode">${item.productDTO.productId}</strong>
@@ -105,10 +109,16 @@
 												</div>
 											</td>
 											<td>
-												<h5 style="color: #41B314; font-weight: bold;">$${item.unitPrice}0</h5>
+												<h5 style="color: #41B314; font-weight: bold;"><fmt:formatNumber
+															value=" ${item.unitPrice}"
+															maxIntegerDigits="10" /> VNĐ
+												</h5>
 												<c:if test="${item.productDTO.saleDTO.salePercent > 0}">
 													<p
-														style="font-size: 16px; padding-top: 7px; text-decoration: line-through;">$${item.productDTO.price}0</p>
+														style="font-size: 16px; padding-top: 7px; text-decoration: line-through;">
+														<fmt:formatNumber value=" ${item.productDTO.price}"
+															maxIntegerDigits="10" /> VNĐ
+													</p>
 												</c:if>
 											</td>
 											<td><select name="quantity" style="color: red;">
@@ -118,8 +128,10 @@
 											</select></td>
 											<td>
 												<h5>
-													<strong class="red" style="color: red;"> $${item.unitPrice *
-														item.quantity}0 </strong>
+													<strong class="red" style="color: red;"> <fmt:formatNumber
+															value=" ${item.unitPrice * item.quantity}"
+															maxIntegerDigits="10" /> VNĐ
+													</strong>
 												</h5>
 											</td>
 											<td><select>
@@ -136,20 +148,27 @@
 								</tbody>
 								<tfoot>
 									<tr>
-										<td colspan="6"><span class="pull-left">Sub Total: <span style="color: red;">$${order.priceTotal - 5}0</span></span><br /> <span
-											class="pull-left">Fee: <span style="color: red;">$5.00</span></span><br /> <span  
+										<td colspan="6"><span class="pull-left">Sub Total:
+												<span style="color: red;">
+													<fmt:formatNumber value="${order.priceTotal}"
+															maxIntegerDigits="10" /> VNĐ
+													</span>
+										</span><br /> <span class="pull-left">Fee: <span
+												style="color: red;">0 VNĐ</span></span><br /> <span
 											class="pull-left" style="font-size: 22px;">Grand
-												Total: <span style="color: red;">$${order.priceTotal}0</span>
+												Total: <span style="color: red;">
+															<fmt:formatNumber value=" ${order.priceTotal}"
+															maxIntegerDigits="10" /> VNĐ
+													   </span>
 										</span>
 											<p class="pull-right" style="display: flex; border: none;">
 												<i class="material-icons"
 													style="margin-top: -35px; color: #00ACC1; margin-right: 1px;">&#xe0c8;</i>
 												<i class="title"
 													style="font-size: 17px; color: #00ACC1; font-weight: bold; margin-top: -30px;">
-													${order.userDTO.fullname} * ${order.userDTO.address} *     
-													${order.userDTO.phone}</i><br/>
-											</p>
-											</td>
+													${order.userDTO.fullname} * ${order.userDTO.address} *
+													${order.userDTO.phone}</i><br />
+											</p></td>
 									</tr>
 								</tfoot>
 							</table>

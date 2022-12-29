@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+<title>Trang Quản Trị - Electronic Shop</title>
 <meta charset="utf-8">
 </head>
 
@@ -28,13 +28,13 @@
 					</form>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="home"> <i class="fa fa-home"
-								style="font-size: 18px;"></i><span> Home</span>
+								style="font-size: 18px;"></i><span> Trang chủ</span>
 						</a></li>
 						<li><a href="#"> <img src="../download?image=${sessionScope.user.avatar}"
 								class="img-circle" alt="Avatar"> <span>${sessionScope.username}</span>
 						</a></li>
 						<li><a href="../logout"> <i class="material-icons"
-								style="color: red;">&#xe8ac;</i><span>Logout</span>
+								style="color: red;">&#xe8ac;</i><span>Đăng xuất</span>
 						</a></li>
 					</ul>
 				</div>

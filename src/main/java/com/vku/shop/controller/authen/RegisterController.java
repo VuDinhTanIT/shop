@@ -53,8 +53,8 @@ public class RegisterController {
 				} else {
 					userDTO.setPassword(new BCryptPasswordEncoder().encode(password));
 					userService.update(userDTO);
-					sendEmail("vudinhtan.it@gmail.com", "vudinhtan.it@gmail.com", "Welcome to FlatShop!",
-							"Hello, " + email.split("@")[0] + "! Please confirm that you can login in FlatShop!" + " Your confirmation code is: " + code);
+					sendEmail("vudinhtan.it@gmail.com", "vudinhtan.it@gmail.com", "Welcome to Shop!",
+							"Hello, " + email.split("@")[0] + "! Please confirm that you can login in Shop!" + " Your confirmation code is: " + code);
 				}
 			}
 		} else {
@@ -71,8 +71,8 @@ public class RegisterController {
 				roleDTO.setRoleId(3);
 				userDTO.setRoleDTO(roleDTO);
 				userService.insert(userDTO);
-				sendEmail("vudinhtan.it@gmail.com", "vudinhtan.it@gmail.com", "Welcome to FlatShop!",
-						"Hello, " + email.split("@")[0] + "! Please confirm that you can login in FlatShop!" + " Your confirmation code is: " + code);
+				sendEmail("vudinhtan.it@gmail.com", "vudinhtan.it@gmail.com", "Welcome to Shop!",
+						"Hello, " + email.split("@")[0] + "! Please confirm that you can login in Shop!" + " Your confirmation code is: " + code);
 			}
 		}
 		HttpSession session = request.getSession();
@@ -86,7 +86,7 @@ public class RegisterController {
 		String code = randomString(8);
 		String email = (String) session.getAttribute("emailRegister");
 		sendEmail("vudinhtan.it@gmail.com", email, "Welcome to Shop!",
-				"Hello, " + email.split("@")[0] + "! Please confirm that you can login in FlatShop!" + " Your confirmation code is: " + code);
+				"Hello, " + email.split("@")[0] + "! Please confirm that you can login in Shop!" + " Your confirmation code is: " + code);
 		request.setAttribute("resend", "resend");
 		session.setAttribute("codeVerify", code);
 		return "authen/verify";

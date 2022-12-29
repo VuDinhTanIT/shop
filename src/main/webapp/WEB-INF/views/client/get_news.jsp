@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Electronic Shop</title>
 </head>
 <body>
 	Thank you for your interest, we will send you the latest notice if any.<br/>

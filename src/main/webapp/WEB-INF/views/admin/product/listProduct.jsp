@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+<title>Trang Quản Trị - Electronic Shop</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -56,7 +57,7 @@
 										<div class="col-md-12">
 											<div class="panel">
 												<div class="panel-heading">
-													<h3 class="panel-title">PRODUCT LIST</h3>
+													<h3 class="panel-title">Danh sách sản phẩm</h3>
 													<p class="demo-button">
 														<a class="btn btn-default" href="product-list"
 															style="padding: 4px 8px; text-decoration: none; border: none; box-shadow: 2px 2px gray; font-weight: bold;">All
@@ -83,11 +84,10 @@
 													<div class="right">
 														<button type="submit">
 															<span class="label label-danger"
-																style="font-size: 15px; margin-right: 15px;">Delete</span>
+																style="font-size: 15px; margin-right: 15px;">Xóa</span>
 														</button>
 														<a href="product-create"><span
-															class="label label-success" style="font-size: 15px;">Create
-																new product</span></a>
+															class="label label-success" style="font-size: 15px;">Thêm sản phẩm mới</span></a>
 													</div>
 												</div>
 												<div class="panel-body no-padding">
@@ -96,13 +96,13 @@
 															<tr>
 																<th><input type="checkbox" name="all" id="checkAll" style="cursor: pointer;"/></th>
 																<th>ID</th>
-																<th>Product Name</th>
-																<th>Price</th>
-																<th>Quantity</th>
-																<th>Sale</th>
-																<th style="width: 10%;">Image</th>
+																<th>Tên sản phẩm</th>
+																<th>Giá</th>
+																<th>Số lượng</th>
+																<th>Giảm giá</th>
+																<th style="width: 10%;">Hình ảnh</th>
 																<th style="width: 22%;">Danh muc</th>
-																<th>Edit</th>
+																<th>Sửa</th>
 															</tr>
 														</thead>
 														<tbody>
@@ -115,9 +115,14 @@
 																	<td style="vertical-align: middle;">${product.productId}</td>
 																	<td style="vertical-align: middle;">${product.productName}</td>
 																	<td style="vertical-align: middle;"><span
-																		style="color: #41B314; font-weight: bold;">$${product.price - (product.price * (product.saleDTO.salePercent / 100))}0</span><br />
+																		style="color: #41B314; font-weight: bold;">
+																		<fmt:formatNumber value="${product.price - (product.price * (product.saleDTO.salePercent / 100))}"
+																		maxIntegerDigits="10" /> VNĐ
+																		</span><br />
 																		<c:if test="${product.saleDTO.salePercent != 0}">
-																		<span style="text-decoration: line-through;'">$${product.price}.0</span>
+																		<span style="text-decoration: line-through;">
+																		<fmt:formatNumber value="${product.price}" maxIntegerDigits="10"/> 
+																		</span>
 																		</c:if>
 																	</td>
 																	<td style="vertical-align: middle;">${product.quantity}</td>

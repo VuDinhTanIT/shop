@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Electronic Shop</title>
 </head>
 <body id="home">
 	<div class="toolbar">

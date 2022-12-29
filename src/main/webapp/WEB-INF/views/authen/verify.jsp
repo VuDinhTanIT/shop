@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Electronic Shop</title>
 <link rel="stylesheet" type="text/css" href="resource/common/authen.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
@@ -19,10 +19,10 @@
 			<div class="auth-form-container">
 				<a href="client/home"><h5 class="auth-form-title"
 					style="text-align: center; padding-top: 20px;">Welcome to
-					FlatShop</h5></a>
+					Shop</h5></a>
 				<hr style="margin-top: -35px;" />
 				<p style="font-size: 18px; text-align: center;">
-					We just sent a confirmation code over to <span
+					Chúng tôi vừa gửi mã xác nhận tới <span
 						style="font-weight: bold;">${sessionScope.emailRegister}</span>
 				</p>
 				<div class="auth-form-form"
@@ -31,7 +31,7 @@
 						<c:if test="${resend != null}">
 							<div style="display: flex; margin-bottom: 2px; color: #0101DF;">
 								<i class="material-icons" style="font-size: 19px;">&#xe88f;</i>
-								<span>Check Your Email.</span>
+								<span>Kiểm tra email của bạn.</span>
 							</div>
 						</c:if>
 						
@@ -45,7 +45,7 @@
 						<c:if test="${verifySuccess != null}">
 							<div style="display: flex; margin-bottom: 2px; color: #339900;">
 								<i style='font-size:19px' class='fas'>&#xf058;</i>
-								<span>${verifySuccess}</span> <a href="login" style="margin-left: 10px;"> Login</a>
+								<span>${verifySuccess}</span> <a href="login" style="margin-left: 10px;"> Đăng nhập</a>
 							</div>
 						</c:if>
 						
@@ -54,12 +54,12 @@
 					</div>
 				</div>
 				<div style="font-size: 17px; text-align: center;">
-					<span>Did'nt work? <a href="resend-code">Send me another code.</a>
+					<span>Không hoạt động<a href="resend-code">Gửi mã khác.</a>
 					</span>
 				</div>
 				<div class="auth-form-controls"
 					style="margin-left: 80px; margin-top: 15px;">
-					<button type="submit" class="btn" style="cursor: pointer;">Confirm</button>
+					<button type="submit" class="btn" style="cursor: pointer;">Xác nhận</button>
 				</div>
 				<div style="padding-bottom: 20px;"></div>
 			</div>

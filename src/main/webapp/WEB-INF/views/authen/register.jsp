@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Electronic Shop</title>
 <link rel="stylesheet" type="text/css" href="resource/common/authen.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
@@ -15,8 +15,8 @@
 		<form action="register" method="post">
 			<div class="auth-form-container">
 				<div class="auth-form-header">
-					<h3 class="auth-form-title">Register</h3>
-					<a href="login" class="auth-form-subtitle">Login</a>
+					<h3 class="auth-form-title">Đăng nhập</h3>
+					<a href="login" class="auth-form-subtitle">Đăng Ký</a>
 				</div>
 				<p style="color: red; margin-top: -20px; margin-left: 3x; margin-bottom: 5px;">${error}</p>
 

@@ -369,6 +369,7 @@ table {
 
 .shop-table img {
 	max-height: 130px;
+	max-width: 160px;
 }
 
 .shop-details {

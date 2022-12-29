@@ -24,16 +24,6 @@
 <link href="../resource/client/css/style.css" rel="stylesheet">
 <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
 
-	<!--	$(document).ready(function() 
-			 $(".products .price").forEach(function(node) {
-					var value = accounting.formatMoney(node.innerText) + ' VNĐ';
-					node.innerHTML = value;
-				});
-		})
-		-->
-	
-
-
 </head>
 <body id="home">
 	<div class="wrapper">

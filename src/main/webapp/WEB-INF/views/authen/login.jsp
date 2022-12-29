@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Electronic Shop</title>
 <link rel="stylesheet" type="text/css" href="resource/common/authen.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
@@ -15,8 +15,8 @@
 		<div class="auth-form" style="background-color: white;">
 			<div class="auth-form-container">
 				<div class="auth-form-header">
-					<h3 class="auth-form-title">Login</h3>
-					<a href="register" class="auth-form-subtitle">Register</a>
+					<h3 class="auth-form-title">Đăng nhập</h3>
+					<a href="register" class="auth-form-subtitle">Đăng ký</a>
 				</div>
 				<p style="color: red; margin-top: -15px; margin-left: 3x; margin-bottom: 5px;">${err}</p>
 				<div class="auth-form-form" style="margin-top: 15px;">
@@ -30,13 +30,13 @@
 					</div>
 					<div class="auth-form-group" style="display: flex; justify-content: space-between; margin-top: -10px; margin-bottom: 15px;">
 						<div><input type="checkbox" name="remember" style="cursor: pointer;"/> Remember me</div>
-						<div><a href="">Forgot password?</a></div>
+						<div><a href="">Quên mật khẩu?</a></div>
 					</div>
 				</div>
 	
 				<div class="auth-form-controls">
-					<a href="client/home" class="btn">Back</a>
-					<button type="submit" class="btn" style="cursor: pointer;">Login</button>
+					<a href="client/home" class="btn">Trở lại</a>
+					<button type="submit" class="btn" style="cursor: pointer;">Đăng nhập</button>
 				</div>
 			</div>
 			<div class="auth-form-social">

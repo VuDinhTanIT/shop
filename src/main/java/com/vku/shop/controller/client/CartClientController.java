@@ -19,6 +19,7 @@ import com.vku.shop.service.ProductService;
 
 @Controller
 @RequestMapping(value = "/client")
+
 public class CartClientController {
 
 	@Autowired
@@ -29,7 +30,7 @@ public class CartClientController {
 		Object object = session.getAttribute("cart");
 		int totalQuantity = 0;
 		float subTotal = 0;
-		float grandTotal = 0;
+		float grandTotal = 0, feeShipping=0;
 		if (object != null) {
 			HashMap<Long, ItemDTO> mapItem = (HashMap<Long, ItemDTO>) object;
 			for(Map.Entry<Long, ItemDTO> entry : mapItem.entrySet()) {
@@ -38,7 +39,7 @@ public class CartClientController {
 			    totalQuantity += value.getQuantity();
 			    subTotal += (value.getUnitPrice() * value.getQuantity());
 			}
-			grandTotal = subTotal + 5;
+			grandTotal = subTotal + feeShipping;
 		}
 		session.setAttribute("totalQuantity", totalQuantity);
 		session.setAttribute("subTotal", subTotal);

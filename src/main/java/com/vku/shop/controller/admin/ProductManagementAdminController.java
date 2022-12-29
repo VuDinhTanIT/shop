@@ -26,7 +26,7 @@ import com.vku.shop.service.SaleService;
 // Product Manager
 
 @Controller
-@RequestMapping(value = "/admin")
+@RequestMapping(value = "/admin", produces = "application/x-www-form-urlencoded;charset=UTF-8")
 public class ProductManagementAdminController {
 	
 	@Autowired
@@ -87,7 +87,7 @@ public class ProductManagementAdminController {
 		return "admin/product/listProductByCategory";
 	}
 	
-	// Create new product
+	// Thêm sản phẩm mới
 	
 	@GetMapping(value = "/product-create")
 	public String insert(HttpServletRequest request) {
