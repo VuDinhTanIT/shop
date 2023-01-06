@@ -51,7 +51,7 @@
 									<li><a href="#">Support</a></li>
 								</ul>  
 								-->
-								
+
 
 							</div>
 							<div class="col-md-3">
@@ -83,23 +83,23 @@
 					<div class="clearfix"></div>
 					<div class="header_bottom">
 						<ul class="option">
-									<li id="search" class="search">
-										<form action="search" method="get">
-											<input class="search-submit" type="submit" value=""><input
-												class="search-input" placeholder="Nhập tìm kiếm sản phẩm..."
-												type="text" value="" name="text">
-										</form>
-									</li>
+							<li id="search" class="search">
+								<form action="search" method="get">
+									<input class="search-submit" type="submit" value=""><input
+										class="search-input" placeholder="Nhập tìm kiếm sản phẩm..."
+										type="text" value="" name="text">
+								</form>
+							</li>
 
-									<li class="option-cart""><a href="cart" class="cart-icon">cart
-											<span class="cart_no">${sessionScope.totalQuantity}</span>
-									</a></li>
+							<li class="option-cart""><a href="cart" class="cart-icon">cart
+									<span class="cart_no">${sessionScope.totalQuantity}</span>
+							</a></li>
 
-									<!--                            <li class="option-cart" sec:authorize="isAuthenticated()">
+							<!--                            <li class="option-cart" sec:authorize="isAuthenticated()">
                               <a th:href="@{/client/cart-load}" class="cart-icon">cart <span class="cart_no">02</span></a>
                            </li>
                             -->
-								</ul>
+						</ul>
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle"
 								data-toggle="collapse" data-target=".navbar-collapse">
@@ -110,7 +110,8 @@
 						</div>
 						<div class="navbar-collapse">
 							<ul class="nav">
-								<li><a style="text-transform: none;" href="home">Trang chủ</a></li>
+								<li><a style="text-transform: none;" href="home">Trang
+										chủ</a></li>
 								<c:forEach items="${sessionScope.categories}" var="category">
 									<li><a style="text-transform: none;"
 										href="search?categoryId=${category.categoryId}">${category.categoryName}</a>

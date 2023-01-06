@@ -73,9 +73,8 @@
 										<td><input required="required" type="email"
 											class="form-control" style="height: 30px;"
 											placeholder="Your Email..." name="email"
-											value="${user.email}" readonly="readonly"/>
-											<input type="hidden" name="userId" value="${user.userId}"/>
-											</td>
+											value="${user.email}" readonly="readonly" /> <input
+											type="hidden" name="userId" value="${user.userId}" /></td>
 									</tr>
 									<tr>
 										<th>Full name:</th>
@@ -130,24 +129,25 @@
 									</tr>
 									<tr>
 										<th>Avatar:</th>
-										<td style="display: flex;"><c:if test="${user.avatar != null}">
+										<td style="display: flex;"><c:if
+												test="${user.avatar != null}">
 												<img src="../download?image=${user.avatar}" alt="Avatar"
 													class="avatar img-circle" style="width: 15%;">
-											</c:if> <input type="file" name="avatarFile" style="margin-left: 5px; margin-top: 30px;"/>
-											<input type="hidden" name="avatar" value="${user.avatar}"/>	
-										</td>
+											</c:if> <input type="file" name="avatarFile"
+											style="margin-left: 5px; margin-top: 30px;" /> <input
+											type="hidden" name="avatar" value="${user.avatar}" /></td>
 									</tr>
 									<tr>
 										<th>Password:</th>
-										<td><input type="password"
-											class="form-control" style="height: 30px;"
-											placeholder="Your password..." name="password" /></td>
+										<td><input type="password" class="form-control"
+											style="height: 30px;" placeholder="Your password..."
+											name="password" /></td>
 									</tr>
 									<tr>
 										<th>Re-password:</th>
-										<td><input type="password"
-											class="form-control" style="height: 30px;"
-											placeholder="Re-password..." name="repassword" /></td>
+										<td><input type="password" class="form-control"
+											style="height: 30px;" placeholder="Re-password..."
+											name="repassword" /></td>
 									</tr>
 									<tr>
 										<th></th>

@@ -99,8 +99,7 @@
 																	<c:if test="${cart.value.quantity == i}">
 																		selected="selected"
 																	</c:if>
-																	value="${i}">${i}
-																</option>
+																	value="${i}">${i}</option>
 															</c:forEach>
 															<input type="hidden"
 															value="${cart.value.productDTO.productId}"
@@ -108,17 +107,15 @@
 														</select>
 													</form>
 												</td>
-												<td>
-													<fmt:formatNumber var="priceTotal"
-															value="${Math.round(cart.value.unitPrice) 
+												<td><fmt:formatNumber var="priceTotal"
+														value="${Math.round(cart.value.unitPrice) 
 															* cart.value.quantity}"
-															maxIntegerDigits="10" />
+														maxIntegerDigits="10" />
 													<h5>
-														<strong class="red" style="font-weight: bold;">
-														<c:out value="${priceTotal }"/> VNĐ
+														<strong class="red" style="font-weight: bold;"> <c:out
+																value="${priceTotal }" /> VNĐ
 														</strong>
-													</h5>
-												</td>
+													</h5></td>
 												<td><a
 													href="delete-from-cart?productId=${cart.value.productDTO.productId}">
 														<i class="material-icons">&#xe92b;</i>
@@ -165,15 +162,14 @@
 										</div>
 									</div>
 									 -->
-									
+
 									<div class="col-md-6 col-sm-6">
 										<div class="shippingbox">
 											<div class="subtotal">
 												<fmt:formatNumber var="sessionSubtotal"
-															value="${sessionScope.subTotal}"
-															maxIntegerDigits="10" />
+													value="${sessionScope.subTotal}" maxIntegerDigits="10" />
 												<h5>Sub Total:</h5>
-												<span><c:out value="${sessionSubtotal}"/> VNĐ</span>
+												<span><c:out value="${sessionSubtotal}" /> VNĐ</span>
 											</div>
 											<div class="subtotal">
 												<h5>Shipping Fee:</h5>
@@ -181,10 +177,9 @@
 											</div>
 											<div class="grandtotal">
 												<fmt:formatNumber var="SessionGrandtotal"
-															value="${sessionScope.grandTotal}"
-															maxIntegerDigits="10" />
+													value="${sessionScope.grandTotal}" maxIntegerDigits="10" />
 												<h5>GRAND TOTAL</h5>
-												<span><c:out value="${SessionGrandtotal}"/> VNĐ</span>
+												<span><c:out value="${SessionGrandtotal}" /> VNĐ</span>
 											</div>
 											<c:if test="${sessionScope.user != null}">
 												<c:if

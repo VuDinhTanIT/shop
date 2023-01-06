@@ -18,7 +18,8 @@
 					<h3 class="auth-form-title">Đăng nhập</h3>
 					<a href="register" class="auth-form-subtitle">Đăng ký</a>
 				</div>
-				<p style="color: red; margin-top: -15px; margin-left: 3x; margin-bottom: 5px;">${err}</p>
+				<p
+					style="color: red; margin-top: -15px; margin-left: 3x; margin-bottom: 5px;">${err}</p>
 				<div class="auth-form-form" style="margin-top: 15px;">
 					<div class="auth-form-group">
 						<input class="auth-form-input" type="text" name="account"
@@ -28,20 +29,30 @@
 						<input class="auth-form-input" type="password" name="password"
 							placeholder="Password" required="required" />
 					</div>
-					<div class="auth-form-group" style="display: flex; justify-content: space-between; margin-top: -10px; margin-bottom: 15px;">
-						<div><input type="checkbox" name="remember" style="cursor: pointer;"/> Remember me</div>
-						<div><a href="">Quên mật khẩu?</a></div>
+					<div class="auth-form-group"
+						style="display: flex; justify-content: space-between; margin-top: -10px; margin-bottom: 15px;">
+						<div>
+							<input type="checkbox" name="remember" style="cursor: pointer;" />
+							Remember me
+						</div>
+						<div>
+							<a href="">Quên mật khẩu?</a>
+						</div>
 					</div>
 				</div>
-	
+
 				<div class="auth-form-controls">
 					<a href="client/home" class="btn">Trở lại</a>
-					<button type="submit" class="btn" style="cursor: pointer;">Đăng nhập</button>
+					<button type="submit" class="btn" style="cursor: pointer;">Đăng
+						nhập</button>
 				</div>
 			</div>
 			<div class="auth-form-social">
-				<a href="#" class="btn-social-fb"><i class='fab' style="font-size: 20px;">&#xf09a;</i> Login with Facebook </a>
-				<a href="#" class="btn-social-gg"><i class='fab' style='font-size:20px; color: tomato'>&#xf2b3;</i> Login with Google </a>
+				<a href="#" class="btn-social-fb"><i class='fab'
+					style="font-size: 20px;">&#xf09a;</i> Login with Facebook </a> <a
+					href="#" class="btn-social-gg"><i class='fab'
+					style='font-size: 20px; color: tomato'>&#xf2b3;</i> Login with
+					Google </a>
 			</div>
 		</div>
 	</form>

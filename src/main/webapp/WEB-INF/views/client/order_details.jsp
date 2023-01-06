@@ -85,7 +85,9 @@
 													</h5> <c:if test="${item.productDTO.saleDTO.salePercent > 0}">
 														<p
 															style="font-size: 16px; padding-top: 7px; text-decoration: line-through;">
-															<fmt:formatNumber value="${item.productDTO.price}" maxIntegerDigits="10" /> VNĐ
+															<fmt:formatNumber value="${item.productDTO.price}"
+																maxIntegerDigits="10" />
+															VNĐ
 														</p>
 													</c:if>
 												</td>
@@ -96,9 +98,10 @@
 												</select></td>
 												<td>
 													<h5>
-														<strong class="red">
-														<fmt:formatNumber value=" ${item.unitPrice * item.quantity}"
-															maxIntegerDigits="10" /> VNĐ</strong>
+														<strong class="red"> <fmt:formatNumber
+																value=" ${item.unitPrice * item.quantity}"
+																maxIntegerDigits="10" /> VNĐ
+														</strong>
 													</h5>
 												</td>
 												<td><select>
@@ -130,10 +133,10 @@
 								</table>
 								<div class="subtotal" style="margin-top: -10px;">
 									<h5>Sub Total:</h5>
-									<span>
-									<fmt:formatNumber value=" ${requestScope.subTotal}"
-															maxIntegerDigits="10" /> VNĐ
-									
+									<span> <fmt:formatNumber
+											value=" ${requestScope.subTotal}" maxIntegerDigits="10" />
+										VNĐ
+
 									</span>
 								</div>
 								<div class="subtotal" style="margin-top: 5px;">
@@ -142,9 +145,9 @@
 								</div>
 								<div class="grandtotal" style="margin-top: 5px;">
 									<h5>GRAND TOTAL</h5>
-									<span>
-									<fmt:formatNumber value=" ${requestScope.grandTotal}"
-															maxIntegerDigits="10" /> VNĐ
+									<span> <fmt:formatNumber
+											value=" ${requestScope.grandTotal}" maxIntegerDigits="10" />
+										VNĐ
 									</span>
 								</div>
 								<div class="clearfix"></div>

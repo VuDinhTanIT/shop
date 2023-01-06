@@ -49,22 +49,22 @@
 										<c:if test="${pricing eq 'default'}">
 										selected="selected"
 										</c:if>
-										value="default">Find by price</option>
+										value="default">Tìm theo giá</option>
 									<option
-										<c:if test="${pricing eq 'under50'}">
+										<c:if test="${pricing eq 'under1'}">
 										selected="selected"
 										</c:if>
-										value="under50">under 50 dollars</option>
+										value="under1">dưới 1 triệu</option>
 									<option
 										<c:if test="${pricing eq '50to70'}">
 										selected="selected"
 										</c:if>
-										value="50to70">50 dollars to 70 dollars</option>
+										value="1to10">1 triệu đến 10 triệu</option>
 									<option
 										<c:if test="${pricing eq 'greaterthan70'}">
 										selected="selected"
 										</c:if>
-										value="greaterthan70">greater than 70 dollars</option>
+										value="greaterthan10">lớn hơn 10 triệu</option>
 									<input type="hidden" name="categoryId" value="${categoryId}" />
 									<input type="hidden" name="text" value="${text}" />
 								</select>
@@ -114,6 +114,9 @@
 
 							<div class="clearfix"></div>
 							<div class="row">
+							<c:if test="${products} == null">
+								Hiện tại không có sản phẩm 
+							</c:if>
 								<c:forEach items="${products}" var="product">
 									<div class="col-md-4 col-sm-6">
 										<div class="products">
@@ -145,7 +148,8 @@
 													style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">
 													<c:out value="${price }" /> VNĐ
 												</span>
-												<span class="price"><c:out value="${priceSale }" /> VNĐ</span>
+												<span class="price"><c:out value="${priceSale }" />
+													VNĐ</span>
 											</c:if>
 
 											<div class="button_group">

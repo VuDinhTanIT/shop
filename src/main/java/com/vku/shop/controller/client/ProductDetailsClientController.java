@@ -22,6 +22,8 @@ public class ProductDetailsClientController {
 	@GetMapping(value = "/product-details")
 	public String productDetails(HttpServletRequest request, @RequestParam(name = "productId") long productId) {
 		request.setAttribute("product", productService.findById(productId));
+		long categoryId = productService.findById(productId).getCategoryDTO().getCategoryId();
+		request.setAttribute("productByCategory", productService.findAllByCategoryId(categoryId, 0, 5));
 		return "client/product_details";
 	}
 }

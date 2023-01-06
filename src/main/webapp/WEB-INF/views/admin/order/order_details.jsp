@@ -109,15 +109,16 @@
 												</div>
 											</td>
 											<td>
-												<h5 style="color: #41B314; font-weight: bold;"><fmt:formatNumber
-															value=" ${item.unitPrice}"
-															maxIntegerDigits="10" /> VNĐ
-												</h5>
-												<c:if test="${item.productDTO.saleDTO.salePercent > 0}">
+												<h5 style="color: #41B314; font-weight: bold;">
+													<fmt:formatNumber value=" ${item.unitPrice}"
+														maxIntegerDigits="10" />
+													VNĐ
+												</h5> <c:if test="${item.productDTO.saleDTO.salePercent > 0}">
 													<p
 														style="font-size: 16px; padding-top: 7px; text-decoration: line-through;">
 														<fmt:formatNumber value=" ${item.productDTO.price}"
-															maxIntegerDigits="10" /> VNĐ
+															maxIntegerDigits="10" />
+														VNĐ
 													</p>
 												</c:if>
 											</td>
@@ -149,17 +150,15 @@
 								<tfoot>
 									<tr>
 										<td colspan="6"><span class="pull-left">Sub Total:
-												<span style="color: red;">
-													<fmt:formatNumber value="${order.priceTotal}"
-															maxIntegerDigits="10" /> VNĐ
-													</span>
+												<span style="color: red;"> <fmt:formatNumber
+														value="${order.priceTotal}" maxIntegerDigits="10" /> VNĐ
+											</span>
 										</span><br /> <span class="pull-left">Fee: <span
 												style="color: red;">0 VNĐ</span></span><br /> <span
 											class="pull-left" style="font-size: 22px;">Grand
-												Total: <span style="color: red;">
-															<fmt:formatNumber value=" ${order.priceTotal}"
-															maxIntegerDigits="10" /> VNĐ
-													   </span>
+												Total: <span style="color: red;"> <fmt:formatNumber
+														value=" ${order.priceTotal}" maxIntegerDigits="10" /> VNĐ
+											</span>
 										</span>
 											<p class="pull-right" style="display: flex; border: none;">
 												<i class="material-icons"

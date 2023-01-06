@@ -39,23 +39,18 @@ public class RegisterController {
 		String code = randomString(8);
 		if (userService.findByEmail(email) != null) {
 			UserDTO userDTO = userService.findByEmail(email);
-			if (userDTO.isVerify() == true) {
+			if (userDTO.getEmail() != null) {
 				request.setAttribute("error", "The email address is already exist!");
 				return "authen/register";
 			} else {
 				if (!password.equals(repassword)) {
 					request.setAttribute("error", "The password do not match!");
 					request.setAttribute("email", email);
-					userDTO.setPassword(repassword);
-					userDTO.setAvatar("1608484153089.png");
+//					userDTO.setPassword(repassword);
+//					userDTO.setAvatar("1608484153089.png");
 //					userService.update(userDTO);
 					return "authen/register";
-				} else {
-					userDTO.setPassword(new BCryptPasswordEncoder().encode(password));
-					userService.update(userDTO);
-					sendEmail("vudinhtan.it@gmail.com", "vudinhtan.it@gmail.com", "Welcome to Shop!",
-							"Hello, " + email.split("@")[0] + "! Please confirm that you can login in Shop!" + " Your confirmation code is: " + code);
-				}
+				} 
 			}
 		} else {
 			if (!password.equals(repassword)) {
@@ -65,28 +60,29 @@ public class RegisterController {
 			} else {
 				UserDTO userDTO = new UserDTO();
 				userDTO.setEmail(email);
-//				userDTO.setPassword(new BCryptPasswordEncoder().encode(password));
-				userDTO.setAvatar("1608484153089.png");
+				userDTO.setPassword(new BCryptPasswordEncoder().encode(password));
+				userDTO.setAvatar("1671850954243.jfif");
 				RoleDTO roleDTO = new RoleDTO();
 				roleDTO.setRoleId(3);
 				userDTO.setRoleDTO(roleDTO);
+				userDTO.setVerify(true);
 				userService.insert(userDTO);
-				sendEmail("vudinhtan.it@gmail.com", "vudinhtan.it@gmail.com", "Welcome to Shop!",
-						"Hello, " + email.split("@")[0] + "! Please confirm that you can login in Shop!" + " Your confirmation code is: " + code);
+//				sendEmail("vudinhtan.it@gmail.com", email, "Welcome to Shop!",
+//						"Hello, " + email.split("@")[0] + "! Please confirm that you can login in Shop!" + " Your confirmation code is: " + code);
 			}
 		}
 		HttpSession session = request.getSession();
 		session.setAttribute("emailRegister", email);
 		session.setAttribute("codeVerify", code);
-		return "authen/verify";
+		return "authen/login";
 	}
-	
+
 	@GetMapping(value = "/resend-code")
 	public String resendCode(HttpSession session, HttpServletRequest request) {
 		String code = randomString(8);
 		String email = (String) session.getAttribute("emailRegister");
-		sendEmail("vudinhtan.it@gmail.com", email, "Welcome to Shop!",
-				"Hello, " + email.split("@")[0] + "! Please confirm that you can login in Shop!" + " Your confirmation code is: " + code);
+		sendEmail("vudinhtan.it@gmail.com", email, "Welcome to Shop!", "Hello, " + email.split("@")[0]
+				+ "! Please confirm that you can login in Shop!" + " Your confirmation code is: " + code);
 		request.setAttribute("resend", "resend");
 		session.setAttribute("codeVerify", code);
 		return "authen/verify";
@@ -107,15 +103,15 @@ public class RegisterController {
 			userService.update(userDTO);
 		}
 		return "authen/verify";
-	} 
-	
+	}
+
 	@PostMapping(value = "get-news")
 	public String getNews(@RequestParam(name = "email") String email) {
 		sendEmail("vudinhtan.it@gmail.com", email, "Welcome to Shop!",
 				"Thank you for your interest, we will send you the latest notice if any. Please pay attention to your mail.");
 		return "client/get_news";
 	}
-	
+
 	public void sendEmail(String from, String to, String subject, String content) {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setFrom(from);
@@ -125,14 +121,14 @@ public class RegisterController {
 
 		mailSender.send(mailMessage);
 	}
-	
+
 	static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	static SecureRandom rnd = new SecureRandom();
 
-	String randomString(int len){
-	   StringBuilder sb = new StringBuilder(len);
-	   for(int i = 0; i < len; i++)
-	      sb.append(AB.charAt(rnd.nextInt(AB.length())));
-	   return sb.toString();
+	String randomString(int len) {
+		StringBuilder sb = new StringBuilder(len);
+		for (int i = 0; i < len; i++)
+			sb.append(AB.charAt(rnd.nextInt(AB.length())));
+		return sb.toString();
 	}
 }

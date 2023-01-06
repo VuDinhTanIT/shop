@@ -113,18 +113,19 @@
 
 								%>
 								<div class="productname">${product.productName}</div>
-								
+
 
 								<c:if test="${product.saleDTO.salePercent != 1010}">
-								<fmt:formatNumber var="price"
+									<fmt:formatNumber var="price"
 										value="${product.price.intValue() }" maxIntegerDigits="10" />
 									<fmt:formatNumber var="priceSale"
 										value="${(product.price - (product.price * product.saleDTO.salePercent / 100)).intValue()}"
 										maxIntegerDigits="10" />
 									<span class="price"
 										style="font-size: 15px; color: black; text-decoration: line-through; margin-bottom: 0px; margin-top: -5px;">
-										<c:out value="${price }"/> VNĐ</span>
-									<span class="price"><c:out value="${priceSale }"/> VNĐ</span>
+										<c:out value="${price }" /> VNĐ
+									</span>
+									<span class="price"><c:out value="${priceSale }" /> VNĐ</span>
 								</c:if>
 
 								<div class="button_group">

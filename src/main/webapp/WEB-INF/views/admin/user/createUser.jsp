@@ -61,7 +61,8 @@
 							<a class="btn btn-warning" href="user-list"
 								style="background-color: #D9534F; padding: 2px 10px; text-decoration: none; border: none; margin-right: 10px; height: 25px;">Back</a>
 						</div>
-						<form action="user-create" method="post" enctype="multipart/form-data">
+						<form action="user-create" method="post"
+							enctype="multipart/form-data">
 							<div class="row"
 								style="display: flex; justify-content: space-between;">
 								<table
@@ -82,8 +83,10 @@
 									<tr>
 										<th>Gender:</th>
 										<td><input type="radio" checked="checked" name="gender"
-											value="true" style="cursor: pointer;"/> <span style="margin-right: 100px;">Male</span>
-											<input type="radio" name="gender" value="false" style="cursor: pointer;"/> Female</td>
+											value="true" style="cursor: pointer;" /> <span
+											style="margin-right: 100px;">Male</span> <input type="radio"
+											name="gender" value="false" style="cursor: pointer;" />
+											Female</td>
 									</tr>
 									<tr>
 										<th>Phone number:</th>
@@ -111,10 +114,9 @@
 												</c:forEach>
 										</select></td>
 									</tr>
-									<tr>   
+									<tr>
 										<th>Avatar:</th>
-										<td><input type="file"
-											name="avatarFile" /></td>
+										<td><input type="file" name="avatarFile" /></td>
 									</tr>
 									<tr>
 										<th>Password:</th>

@@ -7,7 +7,6 @@ and open the template in the editor.
     Created on : Dec 7, 2020, 3:51:28 PM
     Author     : ADMIN
 */
-
 .auth-form {
 	margin: auto;
 	margin-top: 60px;
@@ -24,7 +23,7 @@ and open the template in the editor.
 .auth-form-header {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;	
+	justify-content: space-between;
 }
 
 .auth-form-title {
@@ -105,7 +104,7 @@ and open the template in the editor.
 }
 
 .btn-social-fb:hover {
-	background-color: #4285F4;	
+	background-color: #4285F4;
 }
 
 .btn-social-gg:hover {

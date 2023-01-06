@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +56,8 @@
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-3">
-									<a class="metric-link" href="../admin/order-list" style="color: #676A6D;">
+									<a class="metric-link" href="../admin/order-list"
+										style="color: #676A6D;">
 										<div class="metric" style="box-shadow: 0 0 3px;">
 											<span class="icon"><i class="fa fa-shopping-cart"></i></span>
 											<p>
@@ -128,18 +129,19 @@
 														<tr>
 															<td><a href="#">No. ${order.orderId}</a></td>
 															<td>${order.userDTO.email.split("@")[0]}</td>
-															<td>
-																<fmt:formatNumber value="${order.priceTotal}"
-																maxIntegerDigits="10" /> VNĐ
-															</td>
+															<td><fmt:formatNumber value="${order.priceTotal}"
+																	maxIntegerDigits="10" /> VNĐ</td>
 															<td>${order.buyDate}</td>
 															<c:if test="${order.status eq 'PENDING'}">
-																<td><a href="order-updateHome?orderId=${order.orderId}"><span class="label label-warning">PENDING</span></a></td>
+																<td><a
+																	href="order-updateHome?orderId=${order.orderId}"><span
+																		class="label label-warning">PENDING</span></a></td>
 															</c:if>
 															<c:if test="${order.status eq 'SUCCESS'}">
 																<td><span class="label label-success">SUCCESS</span></td>
 															</c:if>
-															<td><a href="order-details?orderId=${order.orderId}" style="text-decoration: underline;">Details</a></td>
+															<td><a href="order-details?orderId=${order.orderId}"
+																style="text-decoration: underline;">Details</a></td>
 														</tr>
 													</c:forEach>
 												</tbody>
@@ -152,7 +154,8 @@
 														Last 24 hours</span>
 												</div>
 												<div class="col-md-6 text-right">
-													<a href="../admin/order-list" class="btn btn-primary">View All Purchases</a>
+													<a href="../admin/order-list" class="btn btn-primary">View
+														All Purchases</a>
 												</div>
 											</div>
 										</div>

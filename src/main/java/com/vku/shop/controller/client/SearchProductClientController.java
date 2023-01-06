@@ -28,14 +28,14 @@ public class SearchProductClientController {
 		float priceFrom = 0;
 		float priceTo = 0;
 		if (pricing != null) {
-			if (pricing.equals("under50")) {
-				priceTo = 50;
-			} else if(pricing.equals("50to70")) {
-				priceFrom = 50;
-				priceTo = 70;
-			} else if(pricing.equals("greaterthan70")) {
-				priceFrom = 70;
-				priceTo = 1000;
+			if (pricing.equals("under1")) {
+				priceTo = 1000000;
+			} else if(pricing.equals("1to10")) {
+				priceFrom = 1000000;
+				priceTo = 10000000;
+			} else if(pricing.equals("greaterthan10")) {
+				priceFrom = 10000000;
+				priceTo = 60000000;
 			}
 		} else {
 			pricing = "default";

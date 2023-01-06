@@ -31,49 +31,44 @@
 		<div class="container_fullwidth">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-9">
-						<div class="products-details">
-							<div class="preview_image">
-								<div class="row">
-									<div class="col-md-3">
-										<div class="category leftbar">
-											<h3 class="title">Categories</h3>
-											<ul>
-												<c:forEach items="${categories}" var="category">
-													<li><a
-														href="product-grid?categoryId=${category.categoryId}">${category.categoryName}</a></li>
-												</c:forEach>
-											</ul>
-										</div>
-									</div>
 
+					<div class="col-md-3">
+
+						<div class="preview_image">
+							<div class="row"></div>
+							<div class="row">
+								<div class="preview-small">
+									<img src="../download?image=${product.image}" alt=""
+										style="margin-left: 35px; width: 78%; margin-top: 2px;">
 								</div>
-								<div class="row">
-									<div class="preview-small">
-										<img src="../resource/client/images/${product.image}" alt=""
-											style="margin-left: 35px; width: 78%; margin-top: 2px;">
-									</div>
-									<div class="thum-image">
-										<ul id="gallery_01" class="prev-thum">
-											<c:forEach begin="1" end="5">
-												<li><a href="#"> <img
-														src="../resource/client/images/${product.image}" alt="">
-												</a></li>
-											</c:forEach>
-										</ul>
-										<a class="control-left" id="thum-prev"
-											href="javascript:void(0);"> <i class="fa fa-chevron-left">
-										</i>
-										</a> <a class="control-right" id="thum-next"
-											href="javascript:void(0);"> <i
-											class="fa fa-chevron-right"> </i>
-										</a>
-									</div>
-
+								<div class="thum-image">
+									<ul id="gallery_01" class="prev-thum">
+										<c:forEach items="${productByCategory}" varStatus="loop"
+											var="product">
+											<li><a
+												href="product-details?productId=${product.productId }">
+													<img src="../download?image=${product.image}" alt="">
+											</a></li>
+										</c:forEach>
+									</ul>
+									<a class="control-left" id="thum-prev"
+										href="javascript:void(0);"> <i class="fa fa-chevron-left">
+									</i>
+									</a> <a class="control-right" id="thum-next"
+										href="javascript:void(0);"> <i class="fa fa-chevron-right">
+									</i>
+									</a>
 								</div>
-
-
 							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-6">
+						<div class="products-details">
+							<!-- 
+													 
+							-->
 							<div class="products-description">
 								<h5 class="name" style="font-size: 24px;">${product.productName}</h5>
 								<p>
@@ -84,7 +79,8 @@
 									Availability: <span class=" light-red"> In Stock </span>
 								</p>
 								<!--  -->
-								<p style="padding-top: 3px; font-size: 18px;">${product.description}</p>
+								<p
+									style="padding-top: 3px; font-size: 18px; line-height: 24px; text-align: justify;">${product.description}</p>
 								<hr class="border">
 								<fmt:formatNumber var="price"
 									value="${product.price.intValue() }" maxIntegerDigits="10" />
@@ -142,37 +138,46 @@
 						</div>
 						<div class="clearfix"></div>
 						<div class="clearfix"></div>
-
-						<div class="leftbanner">
-							<img src="../resource/client/images/vans.jpg" alt="">
+						<div class="">
+							<div class="category leftbar">
+								<h3 class="title">Categories</h3>
+								<ul>
+									<c:forEach items="${categories}" var="category">
+										<li><a
+											href="product-grid?categoryId=${category.categoryId}">${category.categoryName}</a></li>
+									</c:forEach>
+								</ul>
+							</div>
+							<div class="leftbanner">
+								<img src="../resource/client/images/vans.jpg" alt="">
+							</div>
+							<div class="clearfix"></div>
 						</div>
-						<div class="clearfix"></div>
+
+
+						<div th:replace="client/common/new :: new"></div>
 					</div>
 
+					<!-- 			<div th:replace="client/common/ourbands :: ourbands"></div> -->
 
-					<div th:replace="client/common/new :: new"></div>
 				</div>
-
-				<!-- 			<div th:replace="client/common/ourbands :: ourbands"></div> -->
-
 			</div>
-		</div>
 
-		<jsp:include page="common/footer.jsp" />
-	</div>
-	<script type="text/javascript"
-		src="../resource/client/js/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript"
-		src="../resource/client/js/jquery.easing.1.3.js"></script>
-	<script type="text/javascript"
-		src="../resource/client/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="../resource/client/js/jquery.sequence-min.js"></script>
-	<script type="text/javascript"
-		src="../resource/client/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-	<script defer src="../resource/client/js/jquery.flexslider.js"></script>
-	<script type="text/javascript"
-		src="../resource/client/js/script.min.js"></script>
+			<jsp:include page="common/footer.jsp" />
+		</div>
+		<script type="text/javascript"
+			src="../resource/client/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript"
+			src="../resource/client/js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript"
+			src="../resource/client/js/bootstrap.min.js"></script>
+		<script type="text/javascript"
+			src="../resource/client/js/jquery.sequence-min.js"></script>
+		<script type="text/javascript"
+			src="../resource/client/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+		<script defer src="../resource/client/js/jquery.flexslider.js"></script>
+		<script type="text/javascript"
+			src="../resource/client/js/script.min.js"></script>
 </body>
 
 </html>

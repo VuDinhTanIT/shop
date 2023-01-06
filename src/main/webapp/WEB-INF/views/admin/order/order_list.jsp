@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,19 +92,22 @@
 																	style="cursor: pointer;" /></td>
 																<td style="vertical-align: middle;">No.
 																	${order.orderId}</td>
-																	<td>${order.userDTO.email.split("@")[0]}</td>
-															<td>
-																<fmt:formatNumber value=" ${order.priceTotal}" maxIntegerDigits="10" /> VNĐ
-															</td>
-															<td>${order.buyDate}</td>
-															<c:if test="${order.status eq 'PENDING'}">
-																<td><a href="order-update?orderId=${order.orderId}&pageIndex=${pageIndex}
-																"><span class="label label-warning">PENDING</span></a></td>
-															</c:if>
-															<c:if test="${order.status eq 'SUCCESS'}">
-																<td><span class="label label-success">SUCCESS</span></td>
-															</c:if>
-															<td><a href="order-details?orderId=${order.orderId}" style="text-decoration: underline;">Details</a></td>
+																<td>${order.userDTO.email.split("@")[0]}</td>
+																<td><fmt:formatNumber value=" ${order.priceTotal}"
+																		maxIntegerDigits="10" /> VNĐ</td>
+																<td>${order.buyDate}</td>
+																<c:if test="${order.status eq 'PENDING'}">
+																	<td><a
+																		href="order-update?orderId=${order.orderId}&pageIndex=${pageIndex}
+																"><span
+																			class="label label-warning">PENDING</span></a></td>
+																</c:if>
+																<c:if test="${order.status eq 'SUCCESS'}">
+																	<td><span class="label label-success">SUCCESS</span></td>
+																</c:if>
+																<td><a
+																	href="order-details?orderId=${order.orderId}"
+																	style="text-decoration: underline;">Details</a></td>
 															</tr>
 														</c:forEach>
 													</tbody>

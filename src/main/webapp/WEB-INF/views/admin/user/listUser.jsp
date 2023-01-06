@@ -64,9 +64,8 @@
 														<span class="label label-danger"
 															style="font-size: 15px; margin-right: 15px;">Xóa</span>
 													</button>
-													<a href="user-create"><span
-														class="label label-success" style="font-size: 15px;">Create
-															new account</span></a>
+													<a href="user-create"><span class="label label-success"
+														style="font-size: 15px;">Create new account</span></a>
 												</div>
 											</div>
 											<div class="panel-body no-padding">
@@ -90,27 +89,25 @@
 														<c:forEach items="${users}" var="user" varStatus="loop">
 															<tr>
 																<td style="vertical-align: middle;"><input
-																	class="checkbox" type="checkbox" name="userId" 
+																	class="checkbox" type="checkbox" name="userId"
 																	value="${user.userId}" id="${loop.count}"
 																	style="cursor: pointer;" /></td>
 																<td style="vertical-align: middle;">${user.userId}</td>
-																<td style="vertical-align: middle;"><img src="../download?image=${user.avatar}"
-																	alt="Avatar" class="avatar img-circle"
-																	style="width: 100%;"></td>
+																<td style="vertical-align: middle;"><img
+																	src="../download?image=${user.avatar}" alt="Avatar"
+																	class="avatar img-circle" style="width: 100%;"></td>
 																<td style="vertical-align: middle; padding-left: 25px;">${user.email}</td>
 																<td style="vertical-align: middle;">${user.fullname}</td>
 																<td style="vertical-align: middle;">${user.phone}</td>
 																<td style="vertical-align: middle;">${user.address}</td>
-																<td style="vertical-align: middle;"">
-																	<c:choose>
+																<td style="vertical-align: middle;""><c:choose>
 																		<c:when test="${user.gender}">Male</c:when>
 																		<c:otherwise>Female</c:otherwise>
-																	</c:choose>
-																</td>
+																	</c:choose></td>
 																<td style="vertical-align: middle;">${user.roleDTO.roleName}</td>
-																<td style="vertical-align: middle;"><a href="user-update?userId=${user.userId}">
-																		<span class="label label-warning"
-																		style="font-size: 15px;">Update</span>
+																<td style="vertical-align: middle;"><a
+																	href="user-update?userId=${user.userId}"> <span
+																		class="label label-warning" style="font-size: 15px;">Update</span>
 																</a></td>
 															</tr>
 														</c:forEach>
@@ -126,10 +123,9 @@
 														<c:if test="${i == pageIndex}">
 															style="background-color: #F0AD4E; color: white;"
 														</c:if>
-														href="user-list?pageIndex=${i}">${i + 1}</a>
-													</li>
+														href="user-list?pageIndex=${i}">${i + 1}</a></li>
 												</c:forEach>
-												
+
 											</ul>
 										</nav>
 									</div>

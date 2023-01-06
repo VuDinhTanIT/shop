@@ -55,7 +55,7 @@
 	<script defer src="../resource/client/js/jquery.flexslider.js"></script>
 	<script type="text/javascript"
 		src="../resource/client/js/script.min.js"></script>
-		<!--  
+	<!--  
 			<script type="text/javascript"
 		src="../resource/client/js/jquery.min.js"></script>
 	<script type="text/javascript"

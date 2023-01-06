@@ -13,8 +13,8 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<img src="../resource/admin/assets/img/logo-dark.png" alt="Klorofil Logo"
-					class="img-responsive logo">
+				<img src="../resource/admin/assets/img/logo-dark.png"
+					alt="Klorofil Logo" class="img-responsive logo">
 			</div>
 			<div class="container-fluid">
 				<div id="navbar-menu">
@@ -30,7 +30,8 @@
 						<li><a href="home"> <i class="fa fa-home"
 								style="font-size: 18px;"></i><span> Trang chủ</span>
 						</a></li>
-						<li><a href="#"> <img src="../download?image=${sessionScope.user.avatar}"
+						<li><a href="#"> <img
+								src="../download?image=${sessionScope.user.avatar}"
 								class="img-circle" alt="Avatar"> <span>${sessionScope.username}</span>
 						</a></li>
 						<li><a href="../logout"> <i class="material-icons"

@@ -38,8 +38,8 @@
 							<p>Casio G Shock Digital Dial Black.</p>
 							<form action="../get-news" method="post">
 								<input class="email" type="text" name="email"
-									placeholder="Your Email..." required="required"> <input class="submit"
-									type="submit" value="Submit">
+									placeholder="Your Email..." required="required"> <input
+									class="submit" type="submit" value="Submit">
 							</form>
 						</div>
 						<div class="leftbanner">
@@ -49,9 +49,8 @@
 					<div class="col-md-9">
 						<div class="checkout-page">
 							<ol class="checkout-steps">
-								<li class="steps">
-									<a href="my-order"><div class="step-title">01. MY ORDER</div></a>
-								</li>
+								<li class="steps"><a href="my-order"><div
+											class="step-title">01. MY ORDER</div></a></li>
 								<li class="steps active">
 									<div style="display: flex;">
 										<span class="step-title">02. Billing information </span>

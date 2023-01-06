@@ -24,8 +24,9 @@
 	href="<c:url value='../resource/admin/assets/css/main.css'/>">
 <link rel="stylesheet"
 	href="<c:url value='../resource/admin/assets/css/demo.css'/>">
-<script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
-	
+<script
+	src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
+
 <!-- GOOGLE FONTS -->
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700"
@@ -60,7 +61,8 @@
 							<a class="btn btn-warning" href="product-list"
 								style="background-color: #D9534F; padding: 2px 10px; text-decoration: none; border: none; margin-right: 10px; height: 25px;">Back</a>
 						</div>
-						<form action="product-create" method="post" enctype="multipart/form-data">
+						<form action="product-create" method="post"
+							enctype="multipart/form-data">
 							<div class="row">
 								<table style="margin: auto; margin-left: 60px;" class="col-md-6">
 									<tr>
@@ -79,8 +81,8 @@
 									</tr>
 									<tr>
 										<th>Mô tả:</th>
-										<td><textarea id ="editor1" name="description"></textarea></td>							
-										
+										<td><textarea id="editor1" name="description"></textarea></td>
+
 									</tr>
 
 									<tr>
