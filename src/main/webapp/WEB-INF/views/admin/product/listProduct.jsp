@@ -60,26 +60,29 @@
 													<h3 class="panel-title">Danh sách sản phẩm</h3>
 													<p class="demo-button">
 														<a class="btn btn-default" href="product-list"
-															style="padding: 4px 8px; text-decoration: none; border: none; box-shadow: 2px 2px gray; font-weight: bold;">All
-															Product</a> 
-														<a class="btn btn-success" href="product-list-by-category?categoryId=3"
-															style="background-color: #41B314; padding: 4px 8px; text-decoration: none; border: none; margin-left: 7px;">Vans
-															ERA</a> 
-														<a class="btn btn-info" href="product-list-by-category?categoryId=2"
-															style="background-color: #E4CB10; padding: 4px 8px; text-decoration: none; border: none; margin-left: 5px;">Vans
-															classic</a> 
-														<a class="btn btn-primary" href="product-list-by-category?categoryId=1"
-															style="background-color: #00AAFF; padding: 4px 8px; text-decoration: none; border: none; margin-left: 5px;">Vans
-															authentic</a> 
-														<a class="btn btn-warning" href="product-list-by-category?categoryId=4"
-															style="background-color: #D9534F; padding: 4px 8px; text-decoration: none; border: none; margin-left: 5px;">Vans
-															old skool</a> 
-														<a class="btn btn-danger" href="product-list-by-category?categoryId=5"
-															style="background-color: #5BC0DE; padding: 4px 8px; text-decoration: none; border: none; margin-left: 5px;">Vans
-															SK8</a> 
-														<a class="btn btn-danger" href="product-list-by-category?categoryId=6"
-															style="background-color: gray; padding: 4px 8px; text-decoration: none; border: none; margin-left: 5px;">Vans
-															slip-on</a>
+															style="padding: 4px 8px; text-decoration: none; border: none;">All
+															Product</a> <a class="btn btn-success"
+															href="product-list-by-category?categoryId=3"
+															style="
+															<c:if test="${categoryId == '3'}">box-shadow: 2px 2px gray; font-weight: bold;</c:if> 
+															background-color: #41B314; padding: 4px 8px; text-decoration: none; border: none; margin-left: 7px;">Thiết bị văn phòng</a> <a class="btn btn-info"
+															href="product-list-by-category?categoryId=2"
+															style="
+															<c:if test="${categoryId == '2'}">box-shadow: 2px 2px gray; font-weight: bold;</c:if> 
+															background-color: #E4CB10; padding: 4px 8px; text-decoration: none; border: none; margin-left: 5px;">Loa, Tai nghe</a> <a class="btn btn-primary"
+															href="product-list-by-category?categoryId=1"
+															style="
+															<c:if test="${categoryId == '1'}">box-shadow: 2px 2px gray; font-weight: bold;</c:if> 
+															background-color: #00AAFF; padding: 4px 8px; text-decoration: none; border: none; margin-left: 5px;">Lap top</a> <a class="btn btn-warning"
+															href="product-list-by-category?categoryId=4"
+															style="
+															<c:if test="${categoryId == '4'}">box-shadow: 2px 2px gray; font-weight: bold;</c:if> 
+															background-color: #D9534F; padding: 4px 8px; text-decoration: none; border: none; margin-left: 5px;">Phím chuột, Gaming Gear</a> <a class="btn btn-danger"
+															href="product-list-by-category?categoryId=5"
+															style="
+															<c:if test="${categoryId == '5'}">box-shadow: 2px 2px gray; font-weight: bold;</c:if> 
+															background-color: #5BC0DE; padding: 4px 8px; text-decoration: none; border: none; margin-left: 5px;">Thiết bị mạng</a>
+															
 													</p>
 													<div class="right">
 														<button type="submit">

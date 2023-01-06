@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,8 @@
 	href="<c:url value='../resource/admin/assets/css/main.css'/>">
 <link rel="stylesheet"
 	href="<c:url value='../resource/admin/assets/css/demo.css'/>">
+	<script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
+	
 <!-- GOOGLE FONTS -->
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700"
@@ -59,11 +62,9 @@
 						</div>
 						<form action="product-update" method="post"
 							enctype="multipart/form-data">
-							<div class="row"
-								style="display: flex; justify-content: space-between;">
+							<div class="row">
 								<table style="margin: auto; margin-left: 60px;" class="col-md-6">
 									<tr>
-
 										<th>Danh mục:</th>
 										<td><select name="categoryId">
 												<c:forEach items="${categories}" var="category">
@@ -86,27 +87,20 @@
 									</tr>
 									<tr>
 										<th>Mô tả:</th>
-										<td><textarea required="required" class="form-control"
+										<td>
+										<textarea id = "editor" name="description">${product.description}</textarea>
+										<!--
+										<textarea required="required" class="form-control"
 												placeholder="Nhập mô tả sản phẩm..." rows="4"
 												name="description">${product.description}</textarea></td>
+										  -->									
 									</tr>
-									<tr>
-										<th></th>
-										<td></td>
-									</tr>
-									<tr>
-										<th></th>
-										<td></td>
-									</tr>
-								</table>
-								<table
-									style="margin: auto; margin-left: 50px; margin-right: -40px;"
-									class="col-md-6">
+
 									<tr>
 										<th>Giá:</th>
 										<td><input type="text" class="form-control" 
 											style="height: 30px; width: 230px;"
-											placeholder="$${product.price}0" name="newPrice" />
+											placeholder="<fmt:formatNumber value = '${product.price}' maxIntegerDigits='10'   /> VNĐ" name="newPrice" />
 											<input type="hidden" name="oldPrice" value="${product.price}">
 											</td>
 									</tr>
@@ -160,6 +154,13 @@
 		</div>
 		<!-- END MAIN CONTENT -->
 	</div>
+	<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 </body>
 
 </html>

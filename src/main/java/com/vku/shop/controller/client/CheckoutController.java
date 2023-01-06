@@ -18,7 +18,9 @@ import com.vku.shop.entity.Order;
 import com.vku.shop.entity.Product;
 import com.vku.shop.entity.User;
 import com.vku.shop.model.ItemDTO;
+import com.vku.shop.model.ProductDTO;
 import com.vku.shop.model.UserPrincipal;
+import com.vku.shop.service.ProductService;
 
 @Controller
 @RequestMapping(value = "/client")
@@ -29,6 +31,9 @@ public class CheckoutController {
 	
 	@Autowired
 	private ItemDao itemDao;
+	
+	@Autowired
+	private ProductService productService;
 	
 	@PostMapping(value = "/checkout")
 	public String checkout(HttpSession session) {
@@ -68,9 +73,12 @@ public class CheckoutController {
 		    
 		    Product product = new Product();
 		    product.setProductId(entry.getValue().getProductDTO().getProductId());
-		    
 		    Item item = new Item();
+
 		    item.setItemId(entry.getValue().getItemId());
+//		    System.out.println(product.getQuantity()-entry.getValue().getQuantity());
+//		    productService.update(product);
+
 		    item.setProduct(product);
 		    item.setQuantity(entry.getValue().getQuantity());
 		    item.setUnitPrice(entry.getValue().getUnitPrice());

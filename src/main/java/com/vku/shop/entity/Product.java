@@ -39,7 +39,9 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
-	
+	@ManyToOne
+	@JoinColumn(name = "sale_id")
+	private Sale sale;
 	
 	public long getProductId() {
 		return productId;
@@ -89,8 +91,6 @@ public class Product {
 	public void setSale(Sale sale) {
 		this.sale = sale;
 	}
-	@ManyToOne
-	@JoinColumn(name = "sale_id")
-	private Sale sale;
+
 
 }

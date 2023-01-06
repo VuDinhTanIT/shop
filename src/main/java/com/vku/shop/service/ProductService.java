@@ -2,6 +2,7 @@ package com.vku.shop.service;
 
 import java.util.List;
 
+import com.vku.shop.entity.Product;
 import com.vku.shop.model.ProductDTO;
 
 public interface ProductService {
@@ -9,6 +10,8 @@ public interface ProductService {
 	void insert(ProductDTO productDTO);
 
 	void update(ProductDTO productDTO);
+	void updateQuantity(int quantity);
+
 
 	void delete(long productId);
 
@@ -34,4 +37,5 @@ public interface ProductService {
 			int pageIndex, int pageSize);
 
 	int countBySearch(long categoryId, String pricing, float priceFrom, float priceTo, String text);
+
 }

@@ -270,4 +270,25 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.countBySearch(categoryId, pricing, priceFrom, priceTo, text);
 	}
 
+	@Override
+	public List<ProductDTO> search(long categoryId, String pricing, double priceFrom, double priceTo, String sort,
+			String text, int pageIndex, int pageSize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int countBySearch(long categoryId, String pricing, double priceFrom, double priceTo, String text) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void updateQuantity(int quantity) {
+		// TODO Auto-generated method stub
+		Product product = new Product();
+		product.setQuantity(quantity);
+		productDao.update(product);
+	}
+
 }
