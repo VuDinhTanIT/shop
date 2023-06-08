@@ -539,6 +539,40 @@ ul.notifications>li>.more:hover, ul.notifications>li>.more:focus {
 	background-color: #F9354C;
 }
 
+.sidebar .nav > li > ul {
+  background-color: #252c35;
+  padding: 0;
+  margin: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+.sidebar .nav > li > ul > li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar .nav > li >a + ul {
+	display: none
+}
+
+.sidebar .nav > li > ul > li > a {
+  display: block;
+  color: #AEB7C2;
+  padding: 12px 30px;
+  font-size: 14px;
+  border-bottom: 1px solid #2b333d;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav > li > ul > li > a:hover {
+  color: #fff;
+  background-color: #00AAFF;
+}
+
+.sidebar .nav > li > ul > li:last-child > a {
+  border-bottom: none;
+  border-radius: 0 0 5px 5px;
+}
 .sidebar .nav {
 	/* submenu */
 	

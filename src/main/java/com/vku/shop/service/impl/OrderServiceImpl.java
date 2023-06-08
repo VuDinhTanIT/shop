@@ -1,8 +1,13 @@
 package com.vku.shop.service.impl;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -132,6 +137,49 @@ public class OrderServiceImpl implements OrderService{
 		orderDTO.setPriceTotal(order.getPriceTotal());
 		orderDTO.setUserDTO(userDTO);
 		return orderDTO;
+	}
+	 public Map<String, Double> getRevenueData() {
+	        List<Order> orders = orderDao.findAll();
+	        Map<String, Double> revenueData = new HashMap<>();
+
+	        for (Order order : orders) {
+	            Date buyDate = order.getBuyDate();
+	            String month = new SimpleDateFormat("MM/yyyy").format(buyDate);
+	            double priceTotal = order.getPriceTotal();
+
+	            if (revenueData.containsKey(month)) {
+	                double currentRevenue = revenueData.get(month);
+	                revenueData.put(month, currentRevenue + priceTotal);
+	            } else {
+	                revenueData.put(month, priceTotal);
+	            }
+	        }
+
+	        return revenueData;
+	    }
+	@Override
+	public Map<String, Double> getRevenueData(int year) {
+		return null;
+//	    List<Order> orders = orderDao.findByBuyDateBetween(
+//	        LocalDate.of(year, 1, 1).atStartOfDay(),
+//	        LocalDate.of(year, 12, 31).atTime(LocalTime.MAX)
+//	    );
+//	    Map<String, Double> revenueData = new HashMap<>();
+//
+//	    for (Order order : orders) {
+//	        LocalDate buyDate = order.getBuyDate().toLocalDate();
+//	        String month = String.format("%02d", buyDate.getMonthValue());
+//	        double priceTotal = order.getPriceTotal();
+//
+//	        if (revenueData.containsKey(month)) {
+//	            double currentRevenue = revenueData.get(month);
+//	            revenueData.put(month, currentRevenue + priceTotal);
+//	        } else {
+//	            revenueData.put(month, priceTotal);
+//	        }
+//	    }
+//
+//	    return revenueData;
 	}
 
 }

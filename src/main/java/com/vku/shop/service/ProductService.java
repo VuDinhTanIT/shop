@@ -38,4 +38,8 @@ public interface ProductService {
 
 	int countBySearch(long categoryId, String pricing, float priceFrom, float priceTo, String text);
 
+	int quantityProductSold(long productId);
+
+	List<Product> getBestSellingProducts(int limit);
+
 }

@@ -291,4 +291,16 @@ public class ProductServiceImpl implements ProductService {
 		productDao.update(product);
 	}
 
+	@Override
+	public int quantityProductSold(long productId) {
+		// TODO Auto-generated method stub
+		return productDao.quantityProductSold(productId);
+	}
+
+	@Override
+	public List<Product> getBestSellingProducts(int limit) {
+		// TODO Auto-generated method stub
+		return productDao.getBestSellingProducts(limit);
+	}
+
 }

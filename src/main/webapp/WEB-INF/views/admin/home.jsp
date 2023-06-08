@@ -61,7 +61,7 @@
 										<div class="metric" style="box-shadow: 0 0 3px;">
 											<span class="icon"><i class="fa fa-shopping-cart"></i></span>
 											<p>
-												<span class="number">1,252</span> <span class="title">Order</span>
+												<span class="number">${totalOrder }</span> <span class="title">Đặt hàng</span>
 											</p>
 										</div>
 									</a>
@@ -73,7 +73,7 @@
 											<span class="icon"><i class="fab fa-product-hunt"
 												style="font-size: 26px; margin-top: 12px;"></i></span>
 											<p>
-												<span class="number">203,764</span> <span class="title">Product</span>
+												<span class="number">${totalProduct }</span> <span class="title">Product</span>
 											</p>
 										</div>
 									</a>
@@ -84,11 +84,12 @@
 											<span class="icon"><i
 												style='font-size: 24px; margin-top: 2px;' class='fas'>&#xf0c0;</i></span>
 											<p>
-												<span class="number">505</span><span class="title">User</span>
+												<span class="number">${totalU }</span><span class="title">Người dùng</span>
 											</p>
 										</div>
 									</a>
 								</div>
+								<!-- 
 								<div class="col-md-3">
 									<div class="metric" style="box-shadow: 0 0 3px;">
 										<span class="icon"><i class="fa fa-bar-chart"></i></span>
@@ -97,12 +98,14 @@
 										</p>
 									</div>
 								</div>
+								 -->
+								
 							</div>
 							<div class="row">
 								<div class="col-md-9">
 									<div class="panel">
 										<div class="panel-heading">
-											<h3 class="panel-title">Recent Purchases</h3>
+											<h3 class="panel-title">Mua hàng gần đây</h3>
 											<div class="right">
 												<button type="button" class="btn-toggle-collapse">
 													<i class="lnr lnr-chevron-up"></i>
@@ -117,11 +120,11 @@
 												<thead>
 													<tr>
 														<th>Order No.</th>
-														<th>Name</th>
-														<th>Amount</th>
-														<th>Date &amp; Time</th>
-														<th>Status</th>
-														<th>Details</th>
+														<th>Tên</th>
+														<th>Tổng tiền</th>
+														<th>Ngày</th>
+														<th>Trạng thái</th>
+														<th>Chi tiết</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -154,29 +157,31 @@
 														Last 24 hours</span>
 												</div>
 												<div class="col-md-6 text-right">
-													<a href="../admin/order-list" class="btn btn-primary">View
-														All Purchases</a>
+													<a href="../admin/order-list" class="btn btn-primary">Xem tất cả các giao dịch mua</a>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div id="headline-chart" class="ct-chart"></div>
+								<!-- 
+								
+								 -->
 								<div class="col-md-3">
 									<div class="weekly-summary text-right">
 										<span class="number">2,315</span> <span class="percentage"><i
 											class="fa fa-caret-up text-success"></i> 12%</span> <span
-											class="info-label">Total Sales</span>
+											class="info-label">Tổng doanh thu</span>
 									</div>
 									<div class="weekly-summary text-right">
 										<span class="number">$5,758</span> <span class="percentage"><i
 											class="fa fa-caret-up text-success"></i> 23%</span> <span
-											class="info-label">Monthly Income</span>
+											class="info-label">Thu nhập hàng tháng</span>
 									</div>
 									<div class="weekly-summary text-right">
 										<span class="number">$65,938</span> <span class="percentage"><i
 											class="fa fa-caret-down text-danger"></i> 8%</span> <span
-											class="info-label">Total Income</span>
+											class="info-label">Tổng thu nhập</span>
 									</div>
 								</div>
 							</div>

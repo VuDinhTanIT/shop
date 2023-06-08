@@ -108,7 +108,7 @@
 																<th>ID</th>
 																<th>Tên sản phẩm</th>
 																<th>Giá</th>
-																<th>Số lượng</th>
+																<th>Đã bán</th>
 																<th>Giảm giá</th>
 																<th style="width: 10%;">Hình ảnh</th>
 																<th style="width: 22%;">Danh muc</th>
@@ -136,7 +136,7 @@
 																					maxIntegerDigits="10" />
 																			</span>
 																		</c:if></td>
-																	<td style="vertical-align: middle;">${product.quantity}</td>
+																	<td style="vertical-align: middle;">${productService.quantityProductSold(product.productId)}</td>
 																	<td
 																		style="vertical-align: middle; color: #D9534F; font-weight: bold;">-${product.saleDTO.salePercent}%</td>
 																	<td style="vertical-align: middle;"><img

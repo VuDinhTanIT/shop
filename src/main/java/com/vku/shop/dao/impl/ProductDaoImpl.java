@@ -1,5 +1,6 @@
 package com.vku.shop.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -9,11 +10,9 @@ import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import com.vku.shop.dao.ProductDao;
 import com.vku.shop.entity.Product;
-import com.vku.shop.entity.Order;
 import com.vku.shop.entity.Item;
 
 @Repository
@@ -156,6 +155,31 @@ public class ProductDaoImpl implements ProductDao {
 		return (int) count;
 	}
 
-
+	@Override
+	public int quantityProductSold(long productId) {
+		// TODO Auto-generated method stub
+		String sql ="SELECT SUM(i.quantity) FROM Item i WHERE i.product.productId =" + productId;
+		
+		Query query = sessionFactory.getCurrentSession().createQuery(sql);
+		long count = (long) query.uniqueResult();
+		return (int) count;
+	}
+	@Override
+	 public List<Product> getBestSellingProducts(int limit) {
+        String sql = "SELECT oi.product, SUM(oi.quantity) as totalQuantity "
+                + "FROM Order o JOIN o.items oi "
+                + "WHERE o.status = 'SUCCESS' "
+                + "GROUP BY oi.product "
+                + "ORDER BY totalQuantity DESC";
+		Query query = sessionFactory.getCurrentSession().createQuery(sql);
+        query.setMaxResults(limit);
+        List<Object[]> results = query.list();
+        List<Product> productList = new ArrayList<>();
+        for (Object[] obj : results) {
+            Product p = (Product) obj[0];
+            productList.add(p);
+        }
+        return productList;
+    }
 
 }

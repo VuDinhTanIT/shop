@@ -52,9 +52,10 @@ public class ProductManagementAdminController {
 		if (count % pageSize == 0) {
 			totalPage = count / pageSize;
 		} else {
-			totalPage = count / pageSize + 1;
+			totalPage = count / pageSize + 1;	
 		}
-		
+		request.setAttribute("productService", productService);
+
 		request.setAttribute("default", "default");
 		request.setAttribute("pageIndex", pageIndex);
 		request.setAttribute("totalPage", totalPage);

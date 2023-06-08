@@ -64,4 +64,19 @@ public class OrderDaoImpl implements OrderDao {
 		return (Order) sessionFactory.getCurrentSession().get(Order.class, orderId);
 	}
 
+	@Override
+	public List<Order> findAll() {
+		String sql = "SELECT o FROM Order o ORDER BY o.buyDate DESC";
+		
+		Query query = sessionFactory.getCurrentSession().createQuery(sql);
+		return query.list();
+	}
+	@Override
+	public List<Order> findOrderByYear(int year) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT o FROM Order o where YEAR(o.buyDate) =" +year+ "ORDER BY o.buyDate DESC";
+		
+		Query query = sessionFactory.getCurrentSession().createQuery(sql);
+		return query.list();
+	}
 }
