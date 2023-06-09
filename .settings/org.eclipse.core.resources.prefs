@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/vku/shop/controller/admin/RevenueController.java=UTF-8
+encoding//src/main/java/com/vku/shop/controller/authen/RegisterController.java=UTF-8
 encoding//src/main/java/com/vku/shop/dao/impl/ProductDaoImpl.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/authen/register.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/client/common/featured.jsp=UTF-8

@@ -15,7 +15,7 @@
 </head>
 <body style="background-image: url(resource/client/images/bg.jpg);">
 	<!-- Authen form -->
-	<form action="verify" method="post">
+	<form action="forgetPassWordVerify" method="post">
 		<div class="auth-form" style="background-color: white;">
 			<div class="auth-form-container">
 				<a href="client/home"><h5 class="auth-form-title"
@@ -23,7 +23,7 @@
 						Shop</h5></a>
 				<hr style="margin-top: -35px;" />
 				<p style="font-size: 18px; text-align: center;">
-					Chúng tôi vừa gửi mã xác nhận tới <span style="font-weight: bold;">${sessionScope.emailRegister}</span>
+					Chúng tôi vừa gửi mã xác nhận tới <span style="font-weight: bold;">${sessionScope.email}</span>
 				</p>
 				<div class="auth-form-form"
 					style="margin-top: 15px; margin-bottom: -13px;">

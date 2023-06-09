@@ -36,7 +36,7 @@
 							Remember me
 						</div>
 						<div>
-							<a href="">Quên mật khẩu?</a>
+							<a href="forgetPassword">Quên mật khẩu?</a>
 						</div>
 					</div>
 				</div>
@@ -57,4 +57,10 @@
 		</div>
 	</form>
 </body>
+<script>
+    var message = '${message}';
+    if (message) {
+        alert(message);
+    }
+</script>
 </html>

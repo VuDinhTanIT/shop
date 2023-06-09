@@ -13,10 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.vku.shop.entity.Role;
 import com.vku.shop.model.RoleDTO;
 import com.vku.shop.model.UserDTO;
+
 import com.vku.shop.service.UserService;
 
 @Controller
@@ -50,7 +51,7 @@ public class RegisterController {
 //					userDTO.setAvatar("1608484153089.png");
 //					userService.update(userDTO);
 					return "authen/register";
-				} 
+				}
 			}
 		} else {
 			if (!password.equals(repassword)) {
@@ -77,17 +78,6 @@ public class RegisterController {
 		return "authen/login";
 	}
 
-	@GetMapping(value = "/resend-code")
-	public String resendCode(HttpSession session, HttpServletRequest request) {
-		String code = randomString(8);
-		String email = (String) session.getAttribute("emailRegister");
-		sendEmail("vudinhtan.it@gmail.com", email, "Welcome to Shop!", "Hello, " + email.split("@")[0]
-				+ "! Please confirm that you can login in Shop!" + " Your confirmation code is: " + code);
-		request.setAttribute("resend", "resend");
-		session.setAttribute("codeVerify", code);
-		return "authen/verify";
-	}
-
 	@PostMapping(value = "/verify")
 	public String verify(HttpServletRequest request, HttpSession session) {
 		String code = request.getParameter("code");
@@ -105,14 +95,72 @@ public class RegisterController {
 		return "authen/verify";
 	}
 
+	@GetMapping(value = "/forgetPassword")
+	public String forgetPass() {
+		return "authen/forgetPassword";
+	}
+
+	@PostMapping(value = "/forgetPassWordSendCode")
+	public String resendCode(HttpSession session, HttpServletRequest request) {
+		String code = randomString(8);
+		String email = (String) request.getParameter("email");
+//		String email = (String) session.getAttribute("emailRegister");
+		if (userService.findByEmail(email) == null) {
+			
+				request.setAttribute("error", "Email này không tồn tại, mời nhập lại!");
+				return "authen/forgetPassword";
+		}
+		sendEmail(email, "Welcome to Shop!", "Hello, " + email.split("@")[0]
+				+ "! Please confirm that you can login in Shop!" + " Your confirmation code is: " + code);
+		request.setAttribute("resend", "resend");
+		session.setAttribute("codeVerify", code);
+		session.setAttribute("email", email);
+		return "authen/verify";
+	}
+
+	@PostMapping(value = "/forgetPassWordVerify")
+	public String forgetPassVerify(HttpServletRequest request, HttpSession session) {
+		String code = request.getParameter("code");
+		String codeVerify = (String) session.getAttribute("codeVerify");
+		if (!code.equals(codeVerify)) {
+			request.setAttribute("verifyFail", "Mã không hợp lệ, mời nhập lại");
+			return "authen/verify";
+		} else {
+			String email = (String) session.getAttribute("email");
+			request.setAttribute("verifySuccess", "Đổi mật khẩu thành công");
+		}
+		return "authen/ResetPassWord";
+	}
+	@GetMapping(value = "/ResetPass")
+	public String rs() {
+		return "authen/ResetPassWord";
+	}
+	@PostMapping(value = "/ResetPassWord")
+	public String ResetPassWord(HttpServletRequest request, HttpSession session, 
+			@RequestParam(name = "password") String password, @RequestParam(name = "repassword") String repassword) {
+//		String email = (String) session.getAttribute("email");
+		String email = request.getParameter("email");
+		if (password.equals(repassword)) {
+			UserDTO user = userService.findByEmail(email);
+			user.setPassword(new BCryptPasswordEncoder().encode(repassword));
+			userService.update(user);
+			session.setAttribute("message", "Đổi mật khẩu thành công!");
+			return "redirect:/login";
+		} else {
+			request.setAttribute("error", "Password do not match!");
+			return "authen/ResetPassWord";
+		}
+	}
+
 	@PostMapping(value = "get-news")
 	public String getNews(@RequestParam(name = "email") String email) {
-		sendEmail("vudinhtan.it@gmail.com", email, "Welcome to Shop!",
+		sendEmail(email, "Welcome to Shop!",
 				"Thank you for your interest, we will send you the latest notice if any. Please pay attention to your mail.");
 		return "client/get_news";
 	}
 
-	public void sendEmail(String from, String to, String subject, String content) {
+	public void sendEmail(String to, String subject, String content) {
+		String from = "vdtan.20it7@vku.udn.vn";
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setFrom(from);
 		mailMessage.setTo(to);
